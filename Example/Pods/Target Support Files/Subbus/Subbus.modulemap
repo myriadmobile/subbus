@@ -1,0 +1,6 @@
+framework module Subbus {
+  umbrella header "Subbus-umbrella.h"
+
+  export *
+  module * { export * }
+}

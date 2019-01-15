@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Subbus_Example' do
+  pod 'Subbus', :path => '../'
+
+  target 'Subbus_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

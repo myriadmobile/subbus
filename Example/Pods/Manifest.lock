@@ -1,0 +1,16 @@
+PODS:
+  - Subbus (0.1.0)
+
+DEPENDENCIES:
+  - Subbus (from `../`)
+
+EXTERNAL SOURCES:
+  Subbus:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Subbus: 9c9803b50e08d0508de32491cfed769d45f4b704
+
+PODFILE CHECKSUM: 736f5fca242633e20b1f127abda15819e3fcb7e9
+
+COCOAPODS: 1.5.3

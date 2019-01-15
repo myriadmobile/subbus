@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Subbus'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Subbus.'
+  s.summary          = 'Subbus is a library that improves upon NSNotificationCenter.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,17 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Subbus is a library that improves upon NSNotificationCenter. You specify objects that are passed as events and the library automatically defines a message name. This means that you, as a developer, don't have to worry about remember what the s of your various subscriptions are.
                        DESC
 
-  s.homepage         = 'https://github.com/Alex Larson/Subbus'
+  s.homepage         = 'https://github.com/myriadmobile/subbus'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Alex Larson' => 'alarson@myriadmobile.com' }
-  s.source           = { :git => 'https://github.com/Alex Larson/Subbus.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/myriadmobile/subbus.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'Subbus/Classes/**/*'
   

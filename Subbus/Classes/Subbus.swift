@@ -23,11 +23,11 @@ fileprivate class ListenerWrapper {
     }
 }
 
-fileprivate class EventWrapper {
-    let event: Any
+fileprivate class EventWrapper<T> {
+    let event: T
     let scope: String?
     
-    init(event: Any, scope: String?) {
+    init(event: T, scope: String?) {
         self.event = event
         self.scope = scope
     }
@@ -43,14 +43,8 @@ public class Subbus {
     
     //Fire
     //Event is Any? because Any is implicitly optional, we MUST do a guard let to trim Optional() from the string representing the type to return a non-optional object
-    public static func post(event: Any?, scope: String? = nil) {
-        
-        guard let event = event else {
-            print("Subbus: No object found. Cannot fire.")
-            return
-        }
-        
-        let eventName = String(reflecting: event)
+    public static func post<T>(event: T, scope: String? = nil) {
+        let eventName = String(reflecting: T.self)
         let wrappedEvent = EventWrapper(event: event, scope: scope)
         
         //Post Notification
@@ -76,9 +70,9 @@ public class Subbus {
         let name = Notification.Name(eventName)
         let listener = shared.eventbusCenter.addObserver(forName: name, object: nil, queue: nil) { (notification) in
             guard let _ = weakObserver else { return } //Check to see if observer still exists
-            let wrappedEvent = notification.object as! EventWrapper
+            let wrappedEvent = notification.object as! EventWrapper<T>
             if wrappedEvent.scope == nil || wrappedEvent.scope == scope {
-                callback(wrappedEvent.event as! T)
+                callback(wrappedEvent.event)
             }
         }
         
@@ -92,7 +86,7 @@ public class Subbus {
         //Define Strings
         let observerName = "\(observer)"
         let eventName = String(reflecting: event)
-                
+        
         //Retrieve Target Listeners
         let listenerArray = shared.listeners.filter(filter(observerName: observerName, eventName: eventName, scope: scope))
         
@@ -127,13 +121,13 @@ public class Subbus {
     
     fileprivate static func filter(observerName: String, eventName: String? = nil, scope: String? = nil) -> (ListenerWrapper) -> Bool {
         return {($0.observer == observerName) &&
-                (eventName != nil ? $0.eventName == eventName : true) &&
-                (scope != nil ? $0.eventScope == scope : true)}
+            (eventName != nil ? $0.eventName == eventName : true) &&
+            (scope != nil ? $0.eventScope == scope : true)}
     }
     
     fileprivate static func filterExactScope(observerName: String, eventName: String? = nil, scope: String? = nil) -> (ListenerWrapper) -> Bool {
         return {($0.observer == observerName) &&
-                (eventName != nil ? $0.eventName == eventName : true) &&
-                ($0.eventScope == scope)}
+            (eventName != nil ? $0.eventName == eventName : true) &&
+            ($0.eventScope == scope)}
     }
 }

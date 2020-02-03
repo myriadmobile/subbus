@@ -14,64 +14,424 @@ class TestClassB{}
 class TestClassC{}
 
 class SubbusTests: XCTestCase {
-    var testCount = 0
     
-    func testExample() {
+//    //Simple flow.
+//    func test1() {
+//        var count = 0
 //
-//        //Only events of a given type are called when an scope is not specified
-//        resetTest()
+//        //Test
+//        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
 //        Subbus.post(event: TestClassA())
-//        XCTAssertEqual(testCount, 3) //event 1 and 2
-//
-//        //Only events of a given type and scope are called when an scope is not specified
-//        resetTest()
-//        Subbus.post(event: TestClassA(), scope: "scope")
-//        XCTAssertEqual(testCount, 2) //event 2
-//
-//        //All events should be unsubscribed when only the observer is specified in the unsubscribe function
-//        resetTest()
-//        Subbus.unsubscribe(observer: self)
+//        Subbus.unsubscribe(id: self, event: TestClassA.self)
 //        Subbus.post(event: TestClassA())
+//
+//        //End condition
+//        XCTAssertEqual(count, 1)
+//    }
+//
+//    //Simple flow. Broad unsubscribe.
+//    func test2() {
+//        var count = 0
+//
+//        //Test
+//        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: self)
+//        Subbus.post(event: TestClassA())
+//
+//        //End condition
+//        XCTAssertEqual(count, 1)
+//    }
+//
+//    //Dual subscription.
+//    func test7() {
+//        var count = 0
+//
+//        //Test
+//        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: self)
+//        Subbus.post(event: TestClassA())
+//
+//        //End condition
+//        XCTAssertEqual(count, 2)
+//    }
+//
+//    //Dual subscription. Different events.
+//    func test10() {
+//        var count = 0
+//
+//        //Test
+//        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.subscribe(id: self, event: TestClassB.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: self)
+//        Subbus.post(event: TestClassA())
+//
+//        //End condition
+//        XCTAssertEqual(count, 1)
+//    }
+//
+//    //Dual subscription. Single unsubscribe.
+//    func test12() {
+//        var count = 0
+//
+//        //Test
+//        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.subscribe(id: self, event: TestClassB.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: self, event: TestClassA.self)
 //        Subbus.post(event: TestClassB())
-//        Subbus.post(event: TestClassC())
-//        XCTAssertEqual(testCount, 0) //no event
 //
-//        //All events of a type should be unsubscribed when the observer and type are specified in the unsubscribe function
-//        resetTest()
-//        Subbus.unsubscribe(observer: self, event: TestClassA.self)
-//        Subbus.post(event: TestClassA())
-//        Subbus.post(event: TestClassB())
-//        Subbus.post(event: TestClassC())
-//        XCTAssertEqual(testCount, 12) //event 3 and 4
+//        //End condition
+//        XCTAssertEqual(count, 2)
+//    }
 //
-//        //All events with an scope should be unsubscribed when the observer and scope are specified in the unsubscribe function
-//        resetTest()
-//        Subbus.unsubscribe(observer: self, scope: "scope")
-//        Subbus.post(event: TestClassA())
-//        Subbus.post(event: TestClassB())
-//        Subbus.post(event: TestClassC())
-//        XCTAssertEqual(testCount, 5) //event 1 and 3
+//    //Simple flow. Dual fire.
+//    func test13() {
+//        var count = 0
 //
-//        //All events with an scope and type should be unsubscribed when the observer, type, and scope are specified in the unsubscribe function
-//        resetTest()
-//        Subbus.unsubscribe(observer: self, event: TestClassA.self, scope: "scope")
+//        //Test
+//        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
 //        Subbus.post(event: TestClassA())
-//        Subbus.post(event: TestClassB())
-//        Subbus.post(event: TestClassC())
-//        XCTAssertEqual(testCount, 13) //event 1, 3, and 4
-    }
-
-    //Note: A subscription of a given event and scope (including a non-specified scope) cannot be subscribed twice.
-    //If a subscription is made twice, the new one overwrites the old.
-    func resetTest() {
-        //Ensure each subscribe function is only run once and each callback adds a unique power of two to testCount.
-        //This ensures the resulting sum only has one possible combination of events that can lead to it.
-        // I.E. calling event 2 and event 4 results in a testCount of 2 + 8 = 10. There is no other combination of events that can get to 10.
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: self, event: TestClassA.self)
+//        Subbus.post(event: TestClassA())
+//
+//        //End condition
+//        XCTAssertEqual(count, 2)
+//    }
+//
+//    //Dual subscription with same IDs.
+//    func test14() {
+//        var count = 0
+//
+//        //Test
+//        Subbus.subscribe(id: 1, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.subscribe(id: 1, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: 1)
+//        Subbus.post(event: TestClassA())
+//
+//        //End condition
+//        XCTAssertEqual(count, 2)
+//    }
+//
+//    //Dual subscription with different IDs. Unsub both.
+//    func test15() {
+//        var count = 0
+//
+//        //Test
+//        Subbus.subscribe(id: 1, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.subscribe(id: 2, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: 1)
+//        Subbus.unsubscribe(id: 2)
+//        Subbus.post(event: TestClassA())
+//
+//        //End condition
+//        XCTAssertEqual(count, 2)
+//    }
+//
+//    //Dual subscription with different IDs. Unsub one.
+//    func test16() {
+//        var count = 0
+//
+//        //Test
+//        Subbus.subscribe(id: 1, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.subscribe(id: 2, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: 1)
+//        Subbus.post(event: TestClassA())
+//
+//        //End condition
+//        XCTAssertEqual(count, 3)
+//    }
+    
+    //Non-optional id types
+    func testStringID() {
+        var count = 0
         
-        testCount = 0
-        Subbus.subscribe(observer: self, event: TestClassA.self) { (_) in self.testCount += 1 } //1
-        Subbus.subscribe(observer: self, event: TestClassA.self, scope: "scope" ) { (_) in self.testCount += 2 } //2
-        Subbus.subscribe(observer: self, event: TestClassB.self) { (_) in self.testCount += 4 } //3
-        Subbus.subscribe(observer: self, event: TestClassC.self, scope: "scope" ) { (_) in self.testCount += 8 } //4
+        let id = "1"
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
     }
+    
+    func testIntID() {
+        var count = 0
+        
+        let id = 1
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testNSObjectID() {
+        var count = 0
+        
+        let id = NSObject()
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testStructID() {
+        struct FoobarStruct { }
+        
+        var count = 0
+        
+        let id = FoobarStruct()
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testClassID() {
+        class FoobarClass { }
+        
+        var count = 0
+        
+        let id = FoobarClass()
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    //Optional ID types
+    func testOptionalStringID() {
+        var count = 0
+        
+        let id: String? = "1"
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testOptionalIntID() {
+        var count = 0
+        
+        let id: Int? = 1
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testOptionalNSObjectID() {
+        var count = 0
+        
+        let id: NSObject? = NSObject()
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testOptionalStructID() {
+        struct FoobarStruct { }
+        
+        var count = 0
+        
+        let id: FoobarStruct? = FoobarStruct()
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testOptionalClassID() {
+        class FoobarClass { }
+        
+        var count = 0
+        
+        let id: FoobarClass? = FoobarClass()
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    //Nil IDs
+    func testNilStringID() {
+        var count = 0
+        
+        let id: String? = nil
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 0)
+    }
+    
+    func testNilIntID() {
+        var count = 0
+        
+        let id: Int? = nil
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 0)
+    }
+    
+    func testNilNSObjectID() {
+        var count = 0
+        
+        let id: NSObject? = nil
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 0)
+    }
+    
+    func testNilStructID() {
+        struct FoobarStruct { }
+        
+        var count = 0
+        
+        let id: FoobarStruct? = nil
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 0)
+    }
+    
+    func testNilClassID() {
+        class FoobarClass { }
+        
+        var count = 0
+        
+        let id: FoobarClass? = nil
+        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: id)
+        Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 0)
+    }
+    
 }

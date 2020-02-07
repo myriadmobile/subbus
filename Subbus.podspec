@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Subbus'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'Subbus is a library that improves upon NSNotificationCenter.'
 
   s.description      = <<-DESC

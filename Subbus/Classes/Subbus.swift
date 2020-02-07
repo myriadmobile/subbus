@@ -29,6 +29,7 @@ fileprivate class ListenerWrapper {
 public class Subbus {
     
     //State
+    static var loggingEnabled: Bool = false
     private static let shared = Subbus()
     private var listeners = [ListenerWrapper]() //TODO: Dictionary key of EventName with array of listeners - would be more performant
     private let eventbusCenter = NotificationCenter()
@@ -122,6 +123,7 @@ public class Subbus {
     
     //Misc
     static func log(_ message: String) {
+        guard loggingEnabled == true else { return }
         print("Subbus: \(message)")
     }
     
@@ -140,7 +142,6 @@ public class Subbus {
         guard valString != "nil" else { return nil }
         
         let name = "\(I.self)-\(valString)"
-        print("NAME: \(name)")
         return name
     }
     

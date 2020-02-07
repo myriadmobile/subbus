@@ -96,14 +96,13 @@ class SubbusTests: XCTestCase {
         var count = 0
 
         //Test
-        let myID: Int? = 1
-        Subbus.subscribe(id: myID, event: TestClassA.self) { (event) in
+        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
             count += 1
         }
 
         Subbus.post(event: TestClassA())
         Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: self, event: TestClassA.self)
+        Subbus.unsubscribe(id: self)
         Subbus.post(event: TestClassA())
 
         //End condition
@@ -111,6 +110,23 @@ class SubbusTests: XCTestCase {
     }
     
     //Test ID Types
+    func testTestOptionalID() {
+        var count = 0
+
+        //Test
+        let myID: Int? = 1
+        Subbus.subscribe(id: myID, event: TestClassA.self) { (event) in
+            count += 1 //This should not fire because we do not allow optional IDs
+        }
+
+        Subbus.post(event: TestClassA())
+        Subbus.unsubscribe(id: myID, event: TestClassA.self)
+        Subbus.post(event: TestClassA())
+
+        //End condition
+        XCTAssertEqual(count, 0)
+    }
+    
     func testStringID() {
         var count = 0
         
@@ -186,6 +202,25 @@ class SubbusTests: XCTestCase {
         Subbus.post(event: TestClassA())
         Subbus.unsubscribe(id: id)
         Subbus.post(event: TestClassA())
+        
+        XCTAssertEqual(count, 1)
+    }
+    
+    func testScope() { //Scope relies on the stringFor(id:) function - so if scoping works AT ALL, then it should work for all types that the other unit tests run tests against
+        var count = 0
+        
+        let scope = "my_scope"
+        Subbus.subscribe(id: self, event: TestClassA.self, limitedToScope: scope) { (event) in
+            count += 1
+        }
+        
+        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+            count += 1 //This should NOT fire
+        }
+
+        Subbus.post(event: TestClassA(), limitedToScope: scope)
+        Subbus.unsubscribe(id: self)
+        Subbus.post(event: TestClassA(), limitedToScope: scope)
         
         XCTAssertEqual(count, 1)
     }

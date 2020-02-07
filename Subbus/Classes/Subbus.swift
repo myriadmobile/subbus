@@ -8,6 +8,10 @@
 
 import Foundation
 
+//An easy way to check if something is optional without knowing the Wrapped type
+protocol OptionalProtocol {}
+extension Optional: OptionalProtocol {}
+
 //Classes
 fileprivate class ListenerWrapper {
     let identifier: String
@@ -117,11 +121,11 @@ public class Subbus {
     }
     
     //Misc
-    private static func log(_ message: String) {
+    static func log(_ message: String) {
         print("Subbus: \(message)")
     }
     
-    private static func stringFor<I>(id: I) -> String? {
+    static func stringFor<I>(id: I) -> String? {
         var valString = "" //Value or pointer
         
         //Get the right string type; objects need memory address and primitives just need value.
@@ -141,7 +145,3 @@ public class Subbus {
     }
     
 }
-
-//An easy way to check if something is optional without knowing the Wrapped type
-protocol OptionalProtocol {}
-extension Optional: OptionalProtocol {}

@@ -23,8 +23,6 @@ public extension Subbus {
     static func post<S, T>(event: T, limitedToScope scope: S) {
         //Verify data
         guard (scope as? OptionalProtocol) == nil else { log("Post - You may not pass in an optional scope."); return }
-        
-        //Define strings
         guard let scope = stringFor(id: scope) else { log("Post - String representation of scope is empty."); return }
         
         //Post event
@@ -35,8 +33,6 @@ public extension Subbus {
     static func subscribe<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void) {
         //Verify data
         guard (scope as? OptionalProtocol) == nil else { log("Subscribe - You may not pass in an optional scope."); return }
-        
-        //Define strings
         guard let scope = stringFor(id: scope) else { log("Subscribe - String representation of scope is empty."); return }
         
         //Subscribe
@@ -45,5 +41,4 @@ public extension Subbus {
             callback(event.event)
         }
     }
-    
 }

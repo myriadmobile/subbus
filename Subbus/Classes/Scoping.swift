@@ -20,7 +20,7 @@ struct ScopedEvent<T> { var scope: String, event: T }
 
 public extension Subbus {
     
-    public static func post<S, T>(event: T, limitedToScope scope: S) {
+    static func post<S, T>(event: T, limitedToScope scope: S) {
         //Verify data
         guard (scope as? OptionalProtocol) == nil else { log("Post - You may not pass in an optional scope."); return }
         
@@ -32,7 +32,7 @@ public extension Subbus {
         Subbus.post(event: scopedEvent)
     }
     
-    public static func subscribe<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void) {
+    static func subscribe<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void) {
         //Verify data
         guard (scope as? OptionalProtocol) == nil else { log("Subscribe - You may not pass in an optional scope."); return }
         

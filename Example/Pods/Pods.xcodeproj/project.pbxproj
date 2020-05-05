@@ -45,23 +45,23 @@
 		2DCCA1AD2DBD355BC177626CE10DF943 /* Pods-Subbus_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Subbus_Example-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4B94F92034B826ECF22973E4E14E9DEB /* Pods-Subbus_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Subbus_Tests-umbrella.h"; sourceTree = "<group>"; };
-		4FBEDAABD71E99D3802F991F73C1EBF5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		4FBEDAABD71E99D3802F991F73C1EBF5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		509F7E3960F31EFDA63325C1E22332E2 /* Subbus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Subbus-prefix.pch"; sourceTree = "<group>"; };
 		5239E2C599C91D2F2AA832FF6866B2A2 /* Pods-Subbus_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Subbus_Tests-dummy.m"; sourceTree = "<group>"; };
 		71B0E84D32BE42CD925438612189FA02 /* Pods-Subbus_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Subbus_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7AFB652B7CA4F3CC1767A7899E38389E /* Subbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Subbus.framework; path = Subbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AFB652B7CA4F3CC1767A7899E38389E /* Subbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Subbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D09B00DF8C30094D6EBFF4D4D91A286 /* Pods-Subbus_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Subbus_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7D285649B217B5837CCF3553B9D24175 /* Pods-Subbus_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Subbus_Tests-Info.plist"; sourceTree = "<group>"; };
 		7E29AA3AD001D2C0758DE7E06F538A24 /* Pods-Subbus_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Subbus_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		836D9B6845214EEA48D7EAA39D2C41A9 /* Subbus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subbus.swift; path = Subbus/Classes/Subbus.swift; sourceTree = "<group>"; };
-		8E314D25AD808F10C7063610D28062B0 /* Pods_Subbus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Subbus_Tests.framework; path = "Pods-Subbus_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0A7B9EDFDE2DA338DDD277D82535A3B /* Subbus.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Subbus.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8E314D25AD808F10C7063610D28062B0 /* Pods_Subbus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Subbus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0A7B9EDFDE2DA338DDD277D82535A3B /* Subbus.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Subbus.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A4C9DCAC1FBAAF5AD00D8DF7F9EB65EB /* Pods-Subbus_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Subbus_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A73671C8331C86172C212020FCD9FA81 /* Pods-Subbus_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Subbus_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C53E1A1F1E1783AA0F017AE37BF0D5F9 /* Pods_Subbus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Subbus_Example.framework; path = "Pods-Subbus_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C53E1A1F1E1783AA0F017AE37BF0D5F9 /* Pods_Subbus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Subbus_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53F876F78AA9243196EFE37BC9A1ABA /* Pods-Subbus_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Subbus_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		CA6C06AE477941728A88C7380BB14B47 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		CA6C06AE477941728A88C7380BB14B47 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CE84C3F8D9B50793EA9A9B944B5CF1FA /* Pods-Subbus_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Subbus_Tests.modulemap"; sourceTree = "<group>"; };
 		E4F81F14044FBC4AD5FD1F0D575F9ECF /* Subbus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Subbus-umbrella.h"; sourceTree = "<group>"; };
 		E73777A6E8EF40E0F75119CF52E5A8A6 /* Pods-Subbus_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Subbus_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -318,6 +318,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					6F60897FCFC31F8976D2B9F2D603BEB9 = {
+						LastSwiftMigration = 1140;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -325,6 +330,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 33104C82CEDE1DA841EF09E2202522B4 /* Products */;
@@ -467,7 +473,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -597,7 +603,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -727,8 +733,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

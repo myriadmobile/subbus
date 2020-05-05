@@ -26,7 +26,7 @@ fileprivate class ListenerWrapper {
 }
 
 //Implementation
-public class Subbus {
+public class Subbus: SubbusProtocol {
     
     //State
     static var loggingEnabled: Bool = false
@@ -85,7 +85,7 @@ public class Subbus {
         }
         
         //Remove Listeners From Cache
-        while let index = shared.listeners.index(where: filter(identifier: identifier, eventName: eventName)) {
+        while let index = shared.listeners.firstIndex(where: filter(identifier: identifier, eventName: eventName)) {
             shared.listeners.remove(at: index)
         }
         
@@ -109,7 +109,7 @@ public class Subbus {
         }
         
         //Remove Listeners From Cache
-        while let index = shared.listeners.index(where: filter(identifier: identifier)) { //TODO: Maybe do structs; then you can probably do == comparison instead of filter as it stands
+        while let index = shared.listeners.firstIndex(where: filter(identifier: identifier)) { //TODO: Maybe do structs; then you can probably do == comparison instead of filter as it stands
             shared.listeners.remove(at: index)
         }
         

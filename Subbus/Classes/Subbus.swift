@@ -12,24 +12,18 @@ import Foundation
 protocol OptionalProtocol {}
 extension Optional: OptionalProtocol {}
 
-//Classes
-fileprivate class ListenerWrapper {
-    let identifier: String
-    let eventName: String
-    let listener: NSObjectProtocol
-    
-    init(identifier: String, eventName: String, listener: NSObjectProtocol) {
-        self.identifier = identifier
-        self.eventName = eventName
-        self.listener = listener
-    }
+protocol SubbusProtocol {
+    static func subscribe<I, T>(id: I, event: T.Type, callback: @escaping (T) -> Void)
+    static func unsubscribe<I, T>(id: I, event: T.Type)
+    static func unsubscribe<I>(id: I)
+    static var logToConsole: Bool { get set }
 }
 
 //Implementation
 public class Subbus: SubbusProtocol {
     
     //State
-    static var loggingEnabled: Bool = false
+    static var logToConsole: Bool = false
     private static let shared = Subbus()
     private var listeners = [ListenerWrapper]() //TODO: Dictionary key of EventName with array of listeners - would be more performant
     private let eventbusCenter = NotificationCenter()
@@ -123,7 +117,7 @@ public class Subbus: SubbusProtocol {
     
     //Misc
     static func log(_ message: String) {
-        guard loggingEnabled == true else { return }
+        guard logToConsole == true else { return }
         print("Subbus: \(message)")
     }
     
@@ -144,5 +138,17 @@ public class Subbus: SubbusProtocol {
         let name = "\(I.self)-\(valString)"
         return name
     }
+}
+
+//Classes
+fileprivate class ListenerWrapper {
+    let identifier: String
+    let eventName: String
+    let listener: NSObjectProtocol
     
+    init(identifier: String, eventName: String, listener: NSObjectProtocol) {
+        self.identifier = identifier
+        self.eventName = eventName
+        self.listener = listener
+    }
 }

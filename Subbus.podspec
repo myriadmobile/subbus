@@ -8,11 +8,15 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Subbus'
-  s.version          = '1.1.1'
-  s.summary          = 'Subbus is a library that improves upon NSNotificationCenter.'
+  s.version          = '2.0.0'
+  s.summary          = 'Subbus is a notification library similar to NotificationCenter.'
 
   s.description      = <<-DESC
-Subbus is a library that improves upon NSNotificationCenter. You specify objects that are passed as events and the library automatically defines a message name. This means that you, as a developer, don't have to worry about remember what the s of your various subscriptions are.
+Subbus is a notification library similar to NotificationCenter
+
+You specify objects that are passed as events and the library automatically defines a message name. This means that you, as a developer, don't have to worry about remember what the s of your various subscriptions are.
+
+Subbus can also post persisted events, meaning subscribers will receive past events upon registering.
                        DESC
 
   s.homepage         = 'https://github.com/myriadmobile/subbus'

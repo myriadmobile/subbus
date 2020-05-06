@@ -115,7 +115,7 @@ public class Subbus: SubbusProtocol {
         let eventType = String(reflecting: T.self)
         var handled = false
         
-        for subscription in subscriptionsByEventType[eventType] ?? [] {
+        iteration: for subscription in subscriptionsByEventType[eventType] ?? [] {
             guard let handler = subscription.handler as? ((T) -> PersistentEvent.HandlerResult) else { continue }
             let result = handler(event)
             log("Posted event to listener for identifier: \"\(subscription.identifierKey)\"")
@@ -125,7 +125,7 @@ public class Subbus: SubbusProtocol {
             if handled {
                 switch event.persistanceRule {
                 case .clearImmediately:
-                    break
+                    break iteration
                     
                 case .clearAfterAllCurrentSubscribersNotified:
                     continue

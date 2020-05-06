@@ -9,13 +9,20 @@
 import XCTest
 @testable import Subbus
 
-class TestClassA{}
-class TestClassB{}
-class TestClassC{}
+class TestClassA {}
+class TestClassB {}
+class TestClassC {}
 
 class SubbusTests: XCTestCase {
+    override func setUpWithError() throws {
+        Subbus.logToConsole = true
+    }
     
-    //Test Basic Functionality
+    override func tearDownWithError() throws {
+        Subbus.clearHistory()
+        Subbus.clearSubscribers()
+    }
+    
     func testEventUnsubscribe() {
         var count = 0
 

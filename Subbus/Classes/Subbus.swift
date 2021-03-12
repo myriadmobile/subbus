@@ -50,6 +50,10 @@ public class Subbus {
         
         //Define strings
         guard let identifier = stringFor(id: id) else { log("Subscribe - String representation of ID is empty."); return }
+        
+        // Unsubscribe first
+        self.unsubscribe(id: id, event: event)
+        
         let eventName = String(reflecting: event)
         
         //Register listener

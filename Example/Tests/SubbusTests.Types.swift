@@ -9,22 +9,7 @@
 import XCTest
 @testable import Subbus
 
-extension SubbusTests {
-    func testOptionalID() {
-        var count = 0
-
-        let myID: Int? = 1
-        Subbus.addSubscription(id: myID, event: TestClassA.self) { (event) in
-            count += 1 //This should not fire because we do not allow optional IDs
-        }
-
-        Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: myID, event: TestClassA.self)
-        Subbus.post(event: TestClassA())
-
-        XCTAssertEqual(count, 0)
-    }
-    
+extension SubbusTests {    
     func testStringID() {
         var count = 0
         
@@ -69,23 +54,24 @@ extension SubbusTests {
         
         XCTAssertEqual(count, 1)
     }
-    
-    func testStructID() {
-        struct FoobarStruct { }
-        
-        var count = 0
-        
-        let id = FoobarStruct()
-        Subbus.addSubscription(id: id, event: TestClassA.self) { (event) in
-            count += 1
-        }
-
-        Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: id)
-        Subbus.post(event: TestClassA())
-        
-        XCTAssertEqual(count, 1)
-    }
+  
+    // TODO: Struct support
+//    func testStructID() {
+//        struct FoobarStruct { }
+//
+//        var count = 0
+//
+//        let id = FoobarStruct()
+//        Subbus.addSubscription(id: id, event: TestClassA.self) { (event) in
+//            count += 1
+//        }
+//
+//        Subbus.post(event: TestClassA())
+//        Subbus.unsubscribe(id: id)
+//        Subbus.post(event: TestClassA())
+//
+//        XCTAssertEqual(count, 1)
+//    }
     
     func testClassID() {
         class FoobarClass { }

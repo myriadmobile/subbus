@@ -17,8 +17,10 @@ public class PersistentEvent {
     public enum PersistanceRule {
         // If a subscriber returns .handledSuccessfully, no other subscribers will receive it
         case clearImmediately
+        
         // If a subscriber returns .handledSuccessfully, only existing subscribers will receive the event, then it will be cleared
         case clearAfterAllCurrentSubscribersNotified
+        
         // Event will never be cleared, regardless of what subscribers return
         case neverClear
     }
@@ -52,39 +54,27 @@ extension SubbusProtocol {
 public class Subbus: SubbusProtocol {
     //State
     static var logToConsole: Bool = false
-    internal static var subscriptionsByEventType = [String: [Subscription]]()
+    internal static var subscriptions = [Subscription]()
     internal static var unhandledEvents = [PersistentEvent]()
     
     //Subscribe
-    //TODO: Keep an eye out for a compile-time error to enforce non-optional ids. Optional<Wrapped> is a type and thus the language doesn't seem to support that :(
     public static func addSubscription<I, T>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> Void) {
-        //Verify data
-        guard !(id is OptionalProtocol) else { log("Subscribe - ID cannot be an Optional type.", force: true); return }
-        guard let identifier = stringFor(id: id) else { log("Subscribe - String representation of ID is empty.", force: true); return }
         let eventType = String(reflecting: T.self)
         
-        //Register listener
-        var subscriptions = replace ? [] : (subscriptionsByEventType[eventType] ?? [])
-        subscriptions.append(Subscription(identifierKey: identifier, handler: callback))
-        subscriptionsByEventType[eventType] = subscriptions
+        guard let subscription = Subscription(identifier: id, eventType: eventType, handler: callback) else { return }
+        addSubscription(subscription, replace: replace)
 
-        //Log
-        log("Registered listener for identifier \"\(identifier)\"")
+        log("Registered listener for identifier \"\(stringFor(id: id) ?? String(describing: id))\"")
     }
     
     public static func addSubscription<I, T: PersistentEvent>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> PersistentEvent.HandlerResult) {
-        //Verify data
-        guard !(id is OptionalProtocol) else { log("Subscribe - ID cannot be an Optional type.", force: true); return }
-        guard let identifier = stringFor(id: id) else { log("Subscribe - String representation of ID is empty.", force: true); return }
         let eventType = String(reflecting: T.self)
         
         //Register listener
-        var subscriptions = replace ? [] : (subscriptionsByEventType[eventType] ?? [])
-        subscriptions.append(Subscription(identifierKey: identifier, handler: callback))
-        subscriptionsByEventType[eventType] = subscriptions
+        guard let subscription = Subscription(identifier: id, eventType: eventType, handler: callback) else { return }
+        addSubscription(subscription, replace: replace)
         
         // Post existing events to this new subscription
-        // TODO we should thread this (not the actual posting, but just let the current thread release before sorting through unhandled)
         for index in stride(from: unhandledEvents.count - 1, through: 0, by: -1)  {
             guard let unhandledEvent = unhandledEvents[index] as? T else { continue }
             
@@ -103,31 +93,46 @@ public class Subbus: SubbusProtocol {
             }
         }
         
-        log("Registered listener for identifier \"\(identifier)\"")
+        
+        log("Registered listener for identifier \"\(stringFor(id: id) ?? String(describing: id)))\"")
+    }
+    
+    private static func addSubscription(_ subscription: Subscription, replace: Bool) {
+        cleanup()
+        
+        if replace {
+            subscriptions.removeAll(where: { $0.matches(subscription) })
+        }
+        
+        subscriptions.append(subscription)
     }
     
     //Fire
     public static func post<T>(event: T) {
+        cleanup()
+        
         let eventType = String(reflecting: T.self)
         
-        for subscription in subscriptionsByEventType[eventType] ?? [] {
+        for subscription in subscriptions.filter({ $0.eventType == eventType }) {
             guard let handler = subscription.handler as? ((T) -> Void) else { continue }
             handler(event)
-            log("Posted event to listener for identifier: \"\(subscription.identifierKey)\"")
+            log("Posted event to listener for identifier: \"\(String(describing: subscription.identifier))\"")
         }
         
         log("Posted event for type: \"\(eventType)\"")
     }
     
     public static func post<T: PersistentEvent>(event: T) {
+        cleanup()
+        
         let eventType = String(reflecting: T.self)
         var handled = false
         
-        iteration: for subscription in subscriptionsByEventType[eventType] ?? [] {
+        iteration: for subscription in subscriptions.filter({ $0.eventType == eventType }) {
             guard let handler = subscription.handler as? ((T) -> PersistentEvent.HandlerResult) else { continue }
             let result = handler(event)
-            log("Posted event to listener for identifier: \"\(subscription.identifierKey)\"")
-            
+            log("Posted event to listener for identifier: \"\(String(describing: subscription.identifier))\"")
+
             handled = handled || (result == .handledSuccessfully)
             
             if handled {
@@ -154,55 +159,28 @@ public class Subbus: SubbusProtocol {
 
     //Unsubscribe
     public static func unsubscribe<I, T>(id: I, event: T.Type) {
-        //Verify data
-        guard !(id is OptionalProtocol) else { log("Unsubscribe - ID cannot be an Optional type.", force: true); return }
-        guard let identifier = stringFor(id: id) else { log("Unsubscribe - String representation of ID is empty.", force: true); return }
         let eventType = String(reflecting: T.self)
 
-        //Unsubscribe Listeners
-        var subscriptions = subscriptionsByEventType[eventType] ?? []
-        subscriptions.removeAll(where: { $0.identifierKey == identifier })
-        subscriptionsByEventType[eventType] = subscriptions
+        subscriptions.removeAll(where: { $0.matches(identifier: id, eventType: eventType) })
 
-        log("Unegistered listener for identifier \"\(identifier)\"")
+        log("Unegistered listener for identifier \"\(id)\" event \"\(eventType)\"")
     }
 
     public static func unsubscribe<I>(id: I) {
-        //Verify data
-        guard !(id is OptionalProtocol) else { log("Unsubscribe - ID cannot be an Optional type.", force: true); return }
-        guard let identifier = stringFor(id: id) else { log("Unsubscribe - String representation of ID is empty.", force: true); return }
+        subscriptions.removeAll(where: { $0.matches(identifier: id) })
         
-        for (key, value) in subscriptionsByEventType {
-            var subscriptions = value
-            subscriptions.removeAll(where: { $0.identifierKey == identifier })
-            subscriptionsByEventType[key] = subscriptions
-        }
-        
-        log("Unegistered listener for identifier \"\(identifier)\"")
+        log("Unegistered listener for identifier \"\(id)\"")
     }
-    
-    //Misc
-    static func log(_ message: String, force: Bool = false) {
+}
+
+extension Subbus {
+    internal static func log(_ message: String, force: Bool = false) {
         guard logToConsole || force else { return }
         print("Subbus: \(message)")
     }
     
-    static func stringFor(id: Any) -> String? {
-        var valString = "" //Value or pointer
-        let idType = type(of: id)
-        
-        //Get the right string type; objects need memory address and primitives just need value.
-        if idType is AnyClass {
-            valString = "\(Unmanaged.passUnretained(id as AnyObject).toOpaque())"
-        } else {
-            valString = "\(id)"
-        }
-        
-        //Ensure that the idString is valid
-        guard valString.isEmpty == false else { return nil }
-        guard valString != "nil" else { return nil }
-        
-        return "\(idType)-\(valString)"
+    private static func cleanup() {
+        subscriptions.removeAll(where: { $0.identifier == nil })
     }
     
     internal static func clearHistory() {
@@ -211,16 +189,50 @@ public class Subbus: SubbusProtocol {
     }
     
     internal static func clearSubscribers() {
-        subscriptionsByEventType = [:]
+        subscriptions = []
         log("WARNING: cleared subscriber cache!  This function was made for unit testing, please don't use it.", force: true)
     }
 }
 
-//An easy way to check if something is optional without knowing the Wrapped type
-internal protocol OptionalProtocol {}
-extension Optional: OptionalProtocol {}
-
 internal struct Subscription {
-    var identifierKey: String
+    weak var identifier: AnyObject?
+    var eventType: String
     var handler: Any
+    
+    init?(identifier: Any, eventType: String, handler: Any) {
+        var unwrapped: Any? = nil
+        
+        let mirror = Mirror(reflecting: identifier)
+        if mirror.displayStyle != .optional {
+            unwrapped = identifier
+        } else if mirror.children.count > 0 {
+            (_, unwrapped) = mirror.children.first!
+        }
+        
+        guard let identifier = unwrapped else {
+            Subbus.log("Subscribe - identifier is nil", force: true)
+            return nil
+        }
+        
+        self.identifier = identifier as AnyObject
+        self.eventType = eventType
+        self.handler = handler
+    }
+    
+    func matches(identifier otherId: Any?) -> Bool {
+        if let id = identifier {
+            return "\(Unmanaged.passUnretained(id as AnyObject).toOpaque())" == "\(Unmanaged.passUnretained(otherId as AnyObject).toOpaque())"
+        } else {
+            return String(describing: identifier) == String(describing: otherId)
+        }
+    }
+    
+    func matches(identifier otherId:Any?, eventType otherEventType: String) -> Bool {
+        guard matches(identifier: otherId) else { return false }
+        return eventType == otherEventType
+    }
+    
+    func matches(_ other: Subscription) -> Bool {
+        return matches(identifier: other.identifier, eventType: other.eventType)
+    }
 }

@@ -214,7 +214,7 @@ extension Subbus {
 
 internal struct Subscription {
     weak var identifier: AnyObject?
-    var identifierString: String?
+    var identifierString: String = ""
     var eventType: String
     var handler: Any
     
@@ -224,15 +224,17 @@ internal struct Subscription {
         
         let (id, message) = parseId(identifier)
         
-        guard message == nil else {
-            Subbus.log(message!, force: true)
+        guard let parsedId = id, message == nil else {
+            Subbus.log(message ?? "Subbus: Unable to recognize identifier", force: true)
             return nil
         }
         
-        self.identifier = id
+        self.identifier = parsedId
         
-        if let id = id as? String {
-            self.identifierString = id
+        if let stringId = parsedId as? String {
+            self.identifierString = stringId
+        } else {
+            self.identifierString = Subbus.stringFor(id: parsedId) ?? String(describing: parsedId)
         }
     }
     

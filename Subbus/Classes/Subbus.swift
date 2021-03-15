@@ -8,8 +8,6 @@
 
 import Foundation
 
-public typealias EphemeralEvent = Any
-
 public class PersistentEvent {
     public enum HandlerResult {
         case handledSuccessfully
@@ -33,12 +31,22 @@ public class PersistentEvent {
 }
 
 protocol SubbusProtocol {
-    static func subscribe<I, T>(id: I, event: T.Type, callback: @escaping (T) -> Void)
-    static func subscribe<I, T: PersistentEvent>(id: I, event: T.Type, callback: @escaping (T) -> PersistentEvent.HandlerResult)
+    static func addSubscription<I, T>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> Void)
+    static func addSubscription<I, T: PersistentEvent>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> PersistentEvent.HandlerResult)
     static func post<T>(event: T)
     static func unsubscribe<I, T>(id: I, event: T.Type)
     static func unsubscribe<I>(id: I)
     static var logToConsole: Bool { get set }
+}
+
+extension SubbusProtocol {
+    public static func addSubscription<I, T>(id: I, event: T.Type, callback: @escaping (T) -> Void) {
+        addSubscription(id: id, event: event, replace: false, callback: callback)
+    }
+    
+    public static func addSubscription<I, T: PersistentEvent>(id: I, event: T.Type, callback: @escaping (T) -> PersistentEvent.HandlerResult) {
+        addSubscription(id: id, event: event, replace: false, callback: callback)
+    }
 }
 
 public class Subbus: SubbusProtocol {
@@ -49,14 +57,14 @@ public class Subbus: SubbusProtocol {
     
     //Subscribe
     //TODO: Keep an eye out for a compile-time error to enforce non-optional ids. Optional<Wrapped> is a type and thus the language doesn't seem to support that :(
-    public static func subscribe<I, T>(id: I, event: T.Type, callback: @escaping (T) -> Void) {
+    public static func addSubscription<I, T>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> Void) {
         //Verify data
         guard !(id is OptionalProtocol) else { log("Subscribe - ID cannot be an Optional type.", force: true); return }
         guard let identifier = stringFor(id: id) else { log("Subscribe - String representation of ID is empty.", force: true); return }
         let eventType = String(reflecting: T.self)
         
         //Register listener
-        var subscriptions = subscriptionsByEventType[eventType] ?? []
+        var subscriptions = replace ? [] : (subscriptionsByEventType[eventType] ?? [])
         subscriptions.append(Subscription(identifierKey: identifier, handler: callback))
         subscriptionsByEventType[eventType] = subscriptions
 
@@ -64,14 +72,14 @@ public class Subbus: SubbusProtocol {
         log("Registered listener for identifier \"\(identifier)\"")
     }
     
-    public static func subscribe<I, T: PersistentEvent>(id: I, event: T.Type, callback: @escaping (T) -> PersistentEvent.HandlerResult) {
+    public static func addSubscription<I, T: PersistentEvent>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> PersistentEvent.HandlerResult) {
         //Verify data
         guard !(id is OptionalProtocol) else { log("Subscribe - ID cannot be an Optional type.", force: true); return }
         guard let identifier = stringFor(id: id) else { log("Subscribe - String representation of ID is empty.", force: true); return }
         let eventType = String(reflecting: T.self)
         
         //Register listener
-        var subscriptions = subscriptionsByEventType[eventType] ?? []
+        var subscriptions = replace ? [] : (subscriptionsByEventType[eventType] ?? [])
         subscriptions.append(Subscription(identifierKey: identifier, handler: callback))
         subscriptionsByEventType[eventType] = subscriptions
         

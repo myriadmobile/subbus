@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0208D9F82462F2DF00A4ED3B /* SubbusTests.Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0208D9F72462F2DF00A4ED3B /* SubbusTests.Persistent.swift */; };
+		02359EAF25FFA4C20007E6D6 /* SubbusTests.Scoping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02359EAE25FFA4C20007E6D6 /* SubbusTests.Scoping.swift */; };
+		02359EB525FFA91A0007E6D6 /* SubbusTests.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02359EB425FFA91A0007E6D6 /* SubbusTests.Types.swift */; };
 		10BE33ED707A424EB748E8F9 /* Pods_Subbus_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083B817CA64DBB7AFA43798F /* Pods_Subbus_Tests.framework */; };
 		316C6C6321EE6E300091776B /* SubbusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C6C6221EE6E300091776B /* SubbusTests.swift */; };
 		55BF90926757969D97784637 /* Pods_Subbus_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E2E85C349D573D256A0986 /* Pods_Subbus_Example.framework */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		0208D9F72462F2DF00A4ED3B /* SubbusTests.Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubbusTests.Persistent.swift; sourceTree = "<group>"; };
+		02359EAE25FFA4C20007E6D6 /* SubbusTests.Scoping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubbusTests.Scoping.swift; sourceTree = "<group>"; };
+		02359EB425FFA91A0007E6D6 /* SubbusTests.Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubbusTests.Types.swift; sourceTree = "<group>"; };
 		083B817CA64DBB7AFA43798F /* Pods_Subbus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Subbus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15390F4CE4C119C0063B2DC9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2BB22C397C7E8C272D352BBA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				316C6C6221EE6E300091776B /* SubbusTests.swift */,
+				02359EB425FFA91A0007E6D6 /* SubbusTests.Types.swift */,
+				02359EAE25FFA4C20007E6D6 /* SubbusTests.Scoping.swift */,
 				0208D9F72462F2DF00A4ED3B /* SubbusTests.Persistent.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -342,8 +348,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02359EB525FFA91A0007E6D6 /* SubbusTests.Types.swift in Sources */,
 				316C6C6321EE6E300091776B /* SubbusTests.swift in Sources */,
 				0208D9F82462F2DF00A4ED3B /* SubbusTests.Persistent.swift in Sources */,
+				02359EAF25FFA4C20007E6D6 /* SubbusTests.Scoping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

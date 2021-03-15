@@ -13,7 +13,7 @@
 //If you want to unsubscribe from with a particular scope - use a unique ID (for example - reuse the scope!).
 //Ex:
 //let scope = "abc"
-//subscribe(id: scope, MyEvent.self, limitedToScope: scope)
+//addSubscription(id: scope, MyEvent.self, limitedToScope: scope)
 //unsubscribe(id: scope, MyEvent.self)
 
 struct ScopedEvent<T> { var scope: String, event: T }
@@ -30,13 +30,13 @@ public extension Subbus {
         Subbus.post(event: scopedEvent)
     }
     
-    static func subscribe<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void) {
+    static func addSubscription<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void) {
         //Verify data
         guard (scope as? OptionalProtocol) == nil else { log("Subscribe - You may not pass in an optional scope."); return }
         guard let scope = stringFor(id: scope) else { log("Subscribe - String representation of scope is empty."); return }
         
         //Subscribe
-        Subbus.subscribe(id: id, event: ScopedEvent<T>.self) { (event) in
+        Subbus.addSubscription(id: id, event: ScopedEvent<T>.self) { (event) in
             guard event.scope == scope else { return }
             callback(event.event)
         }

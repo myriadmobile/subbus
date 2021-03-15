@@ -27,7 +27,7 @@ extension SubbusTests {
     func testSubscribingBeforePosting() throws {
         var received = false
         
-        Subbus.subscribe(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
+        Subbus.addSubscription(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
             received = true
             return .handledSuccessfully
         }
@@ -43,7 +43,7 @@ extension SubbusTests {
         let event = PersistentTestClassA()
         Subbus.post(event: event)
         
-        Subbus.subscribe(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
+        Subbus.addSubscription(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
             return .handledSuccessfully
         }
         
@@ -53,7 +53,7 @@ extension SubbusTests {
     func testSubscriberNotHandlingEvent() throws {
         let event = PersistentTestClassA()
         
-        Subbus.subscribe(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
+        Subbus.addSubscription(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
             return .failed
         }
         
@@ -66,7 +66,7 @@ extension SubbusTests {
         let event = PersistentTestClassA()
         event.exampleVar = "testVariablesBeingPersisted"
         
-        Subbus.subscribe(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
+        Subbus.addSubscription(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
             XCTAssert(event.exampleVar == "testVariablesBeingPersisted", "PersistentTestClassA's variable was not persisted")
             return .handledSuccessfully
         }
@@ -77,11 +77,11 @@ extension SubbusTests {
     func testFirstSubscriberReceivesEvent() throws {
         let event = PersistentTestClassA()
 
-        Subbus.subscribe(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
+        Subbus.addSubscription(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
             return .handledSuccessfully
         }
         
-        Subbus.subscribe(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
+        Subbus.addSubscription(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
             XCTFail("Second subscriber received event, but shouldn't have")
             return .failed
         }
@@ -99,7 +99,7 @@ extension SubbusTests {
             Subbus.post(event: event)
         }
         
-        Subbus.subscribe(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
+        Subbus.addSubscription(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
             events = events.filter({ $0.exampleVar != event.exampleVar })
             return .handledSuccessfully
         }
@@ -116,7 +116,7 @@ extension SubbusTests {
         
         var receivedCount = 0
         
-        Subbus.subscribe(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
+        Subbus.addSubscription(id: self, event: PersistentTestClassA.self) { (event) -> PersistentEvent.HandlerResult in
             XCTAssert(event.exampleVar == "\(receivedCount)", "Events were not received chronologically after subscribing")
             receivedCount += 1
             return .handledSuccessfully

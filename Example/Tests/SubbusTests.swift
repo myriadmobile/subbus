@@ -23,11 +23,22 @@ class SubbusTests: XCTestCase {
         Subbus.clearSubscribers()
     }
     
+    func testEventSubscribe() {
+        var count = 0
+
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+
+        XCTAssertEqual(count, 1)
+    }
+    
     func testEventUnsubscribe() {
         var count = 0
 
-        //Test
-        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
             count += 1
         }
 
@@ -35,19 +46,33 @@ class SubbusTests: XCTestCase {
         Subbus.unsubscribe(id: self, event: TestClassA.self)
         Subbus.post(event: TestClassA())
 
-        //End condition
         XCTAssertEqual(count, 1)
     }
 
-    func testDualSubscription() {
+    func testRepeatSubscription() {
         var count = 0
 
-        //Test
-        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
             count += 1
         }
 
-        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+
+        XCTAssertEqual(count, 2)
+    }
+    
+    func testRepeatUnsubscribe() {
+        var count = 0
+
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
+            count += 1
+        }
+
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
             count += 1
         }
 
@@ -55,19 +80,33 @@ class SubbusTests: XCTestCase {
         Subbus.unsubscribe(id: self)
         Subbus.post(event: TestClassA())
 
-        //End condition
         XCTAssertEqual(count, 2)
+    }
+    
+    func testReplaceSubscription() {
+        var count = 0
+
+        Subbus.addSubscription(id: self, event: TestClassA.self, replace: true) { (event) in
+            count += 1
+        }
+
+        Subbus.addSubscription(id: self, event: TestClassA.self, replace: true) { (event) in
+            count += 1
+        }
+
+        Subbus.post(event: TestClassA())
+
+        XCTAssertEqual(count, 1)
     }
 
     func testMutlipleEventsSameID() {
         var count = 0
 
-        //Test
-        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
             count += 1
         }
 
-        Subbus.subscribe(id: self, event: TestClassB.self) { (event) in
+        Subbus.addSubscription(id: self, event: TestClassB.self) { (event) in
             count += 1
         }
 
@@ -75,19 +114,17 @@ class SubbusTests: XCTestCase {
         Subbus.unsubscribe(id: self)
         Subbus.post(event: TestClassA())
 
-        //End condition
         XCTAssertEqual(count, 1)
     }
 
     func testMultipleEventsSingleUnsubscribe() {
         var count = 0
 
-        //Test
-        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
             count += 1
         }
 
-        Subbus.subscribe(id: self, event: TestClassB.self) { (event) in
+        Subbus.addSubscription(id: self, event: TestClassB.self) { (event) in
             count += 1
         }
 
@@ -95,15 +132,13 @@ class SubbusTests: XCTestCase {
         Subbus.unsubscribe(id: self, event: TestClassA.self)
         Subbus.post(event: TestClassB())
 
-        //End condition
         XCTAssertEqual(count, 2)
     }
 
-    func testTestMultiplePost() {
+    func testMultiplePost() {
         var count = 0
 
-        //Test
-        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
+        Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in
             count += 1
         }
 
@@ -112,124 +147,6 @@ class SubbusTests: XCTestCase {
         Subbus.unsubscribe(id: self)
         Subbus.post(event: TestClassA())
 
-        //End condition
         XCTAssertEqual(count, 2)
     }
-    
-    //Test ID Types
-    func testTestOptionalID() {
-        var count = 0
-
-        //Test
-        let myID: Int? = 1
-        Subbus.subscribe(id: myID, event: TestClassA.self) { (event) in
-            count += 1 //This should not fire because we do not allow optional IDs
-        }
-
-        Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: myID, event: TestClassA.self)
-        Subbus.post(event: TestClassA())
-
-        //End condition
-        XCTAssertEqual(count, 0)
-    }
-    
-    func testStringID() {
-        var count = 0
-        
-        let id = "1"
-        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
-            count += 1
-        }
-
-        Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: id)
-        Subbus.post(event: TestClassA())
-        
-        XCTAssertEqual(count, 1)
-    }
-    
-    func testIntID() {
-        var count = 0
-        
-        let id = 1
-        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
-            count += 1
-        }
-
-        Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: id)
-        Subbus.post(event: TestClassA())
-        
-        XCTAssertEqual(count, 1)
-    }
-    
-    func testNSObjectID() {
-        var count = 0
-        
-        let id = NSObject()
-        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
-            count += 1
-        }
-
-        Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: id)
-        Subbus.post(event: TestClassA())
-        
-        XCTAssertEqual(count, 1)
-    }
-    
-    func testStructID() {
-        struct FoobarStruct { }
-        
-        var count = 0
-        
-        let id = FoobarStruct()
-        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
-            count += 1
-        }
-
-        Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: id)
-        Subbus.post(event: TestClassA())
-        
-        XCTAssertEqual(count, 1)
-    }
-    
-    func testClassID() {
-        class FoobarClass { }
-        
-        var count = 0
-        
-        let id = FoobarClass()
-        Subbus.subscribe(id: id, event: TestClassA.self) { (event) in
-            count += 1
-        }
-
-        Subbus.post(event: TestClassA())
-        Subbus.unsubscribe(id: id)
-        Subbus.post(event: TestClassA())
-        
-        XCTAssertEqual(count, 1)
-    }
-    
-    func testScope() { //Scope relies on the stringFor(id:) function - so if scoping works AT ALL, then it should work for all types that the other unit tests run tests against
-        var count = 0
-        
-        let scope = "my_scope"
-        Subbus.subscribe(id: self, event: TestClassA.self, limitedToScope: scope) { (event) in
-            count += 1
-        }
-        
-        Subbus.subscribe(id: self, event: TestClassA.self) { (event) in
-            count += 1 //This should NOT fire
-        }
-
-        Subbus.post(event: TestClassA(), limitedToScope: scope)
-        Subbus.unsubscribe(id: self)
-        Subbus.post(event: TestClassA(), limitedToScope: scope)
-        
-        XCTAssertEqual(count, 1)
-    }
-    
 }

@@ -174,6 +174,24 @@ public class Subbus: SubbusProtocol {
 }
 
 extension Subbus {
+    internal static func stringFor(id: Any) -> String? {
+        var valString = "" //Value or pointer
+        let idType = type(of: id)
+
+        //Get the right string type; objects need memory address and primitives just need value.
+        if idType is AnyClass {
+            valString = "\(Unmanaged.passUnretained(id as AnyObject).toOpaque())"
+        } else {
+            valString = "\(id)"
+        }
+
+        //Ensure that the idString is valid
+        guard valString.isEmpty == false else { return nil }
+        guard valString != "nil" else { return nil }
+
+        return "\(idType)-\(valString)"
+    }
+    
     internal static func log(_ message: String, force: Bool = false) {
         guard logToConsole || force else { return }
         print("Subbus: \(message)")
@@ -196,31 +214,60 @@ extension Subbus {
 
 internal struct Subscription {
     weak var identifier: AnyObject?
+    var identifierString: String?
     var eventType: String
     var handler: Any
     
     init?(identifier: Any, eventType: String, handler: Any) {
-        var unwrapped: Any? = nil
+        self.eventType = eventType
+        self.handler = handler
         
-        let mirror = Mirror(reflecting: identifier)
-        if mirror.displayStyle != .optional {
-            unwrapped = identifier
-        } else if mirror.children.count > 0 {
-            (_, unwrapped) = mirror.children.first!
-        }
+        let (id, message) = parseId(identifier)
         
-        guard let identifier = unwrapped else {
-            Subbus.log("Subscribe - identifier is nil", force: true)
+        guard message == nil else {
+            Subbus.log(message!, force: true)
             return nil
         }
         
-        self.identifier = identifier as AnyObject
-        self.eventType = eventType
-        self.handler = handler
+        self.identifier = id
+        
+        if let id = id as? String {
+            self.identifierString = id
+        }
+    }
+    
+    private func parseId(_ id: Any) -> (AnyObject?, String?) {
+        let mirror = Mirror(reflecting: id)
+        
+        switch mirror.displayStyle {
+        case .optional:
+            var unwrapped: Any? = nil
+            if mirror.children.count > 0 {
+                (_, unwrapped) = mirror.children.first!
+            }
+            
+            guard let id = unwrapped else {
+                return (nil, "Subscribe - identifier is nil")
+            }
+            return parseId(id)
+        case .struct, .enum, .tuple, .collection, .dictionary, .set, .none:
+            guard let id = Subbus.stringFor(id: id) else {
+                return (nil, "Subscribe - unabled to create string representation for Identifier")
+            }
+            
+            return (id as AnyObject, nil)
+        case .class:
+            return (id as AnyObject, nil)
+        case .some(let thing):
+            return (nil, "Subscribe - identifier is unrecognizable: \(thing)")
+        }
     }
     
     func matches(identifier otherId: Any?) -> Bool {
-        if let id = identifier {
+        let (parsedId, _) = parseId(otherId)
+        if let id = identifier as? String, let otherId = parsedId as? String {
+            return id == otherId
+        } else if let id = identifier, let otherId = parsedId {
             return "\(Unmanaged.passUnretained(id as AnyObject).toOpaque())" == "\(Unmanaged.passUnretained(otherId as AnyObject).toOpaque())"
         } else {
             return String(describing: identifier) == String(describing: otherId)

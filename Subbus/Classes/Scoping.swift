@@ -45,22 +45,4 @@ public extension Subbus {
             callback(event.event)
         }
     }
-    
-    static func stringFor(id: Any) -> String? {
-        var valString = "" //Value or pointer
-        let idType = type(of: id)
-
-        //Get the right string type; objects need memory address and primitives just need value.
-        if idType is AnyClass {
-            valString = "\(Unmanaged.passUnretained(id as AnyObject).toOpaque())"
-        } else {
-            valString = "\(id)"
-        }
-
-        //Ensure that the idString is valid
-        guard valString.isEmpty == false else { return nil }
-        guard valString != "nil" else { return nil }
-
-        return "\(idType)-\(valString)"
-    }
 }

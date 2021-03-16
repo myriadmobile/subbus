@@ -5,25 +5,12 @@
 //  Created by Alex Larson on 2/6/20.
 //
 
-/// A special convenience event type that allows subscribers to register to a specified scope.
-///
-/// This scope limits the receivers of an event even further,
-/// allowing the same event to have further separation of types without defining multiple events.
-struct ScopedEvent<T> {
-    var scope: String
-    var event: T
-}
-
-/// A simple protocol that conveniently isolates `Optional` protocol conformance
-/// without the need for knowing the wrapped type.
-internal protocol OptionalProtocol {}
-
-/// Conformance of the `OptionalProtocol`.
-extension Optional: OptionalProtocol {}
-
 /// The protocol defining the scoping capabilities added to Subbus.
 protocol SubbusScopingProtocol {
     /// Adds a new subscription to Subbus with a `ScopedEvent`.
+    ///
+    /// This scope limits the receivers of an event even further,
+    /// allowing the same event to have further separation of types without defining multiple events.
     ///
     /// There is no easy way to unsubscribe from a particular scope by using ONLY the scope.
     /// I.e. there is no `unsubscribe(id:event:scope:)`.
@@ -73,3 +60,16 @@ extension Subbus: SubbusScopingProtocol {
         Subbus.post(event: scopedEvent)
     }
 }
+
+/// A special convenience event type that allows subscribers to register to a specified scope.
+internal struct ScopedEvent<T> {
+    var scope: String
+    var event: T
+}
+
+/// A simple protocol that conveniently isolates `Optional` protocol conformance
+/// without the need for knowing the wrapped type.
+internal protocol OptionalProtocol {}
+
+/// Conformance of the `OptionalProtocol`.
+extension Optional: OptionalProtocol {}

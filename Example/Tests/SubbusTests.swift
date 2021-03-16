@@ -169,4 +169,25 @@ class SubbusTests: XCTestCase {
 
         XCTAssertEqual(count, 2)
     }
+    
+    func testUnsubscribeAllObserversOfEvent() {
+        var count = 0
+        
+        let observerA = TestClassA()
+        let observerB = TestClassB()
+
+        Subbus.addSubscription(id: observerA, event: TestClassC.self) { (event) in
+            count += 1
+        }
+        
+        Subbus.addSubscription(id: observerB, event: TestClassC.self) { (event) in
+            count += 1
+        }
+        
+        Subbus.post(event: TestClassC())
+        Subbus.unsubscribe(event: TestClassC.self)
+        Subbus.post(event: TestClassC())
+
+        XCTAssertEqual(count, 2)
+    }
 }

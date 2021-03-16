@@ -40,6 +40,13 @@ protocol SubbusProtocol {
     ///     - id: The id of the subscriber to this event.  This is the same as used for subscribing.
     static func unsubscribe<I>(id: I)
     
+    /// Unsubscribes all listeners of the specified event type.
+    ///
+    /// Parameters:
+    ///     - event: The event type from which all observers of this event will be unsubscribed.
+    
+    static func unsubscribe<T>(event: T.Type)
+    
     /// Whether Subbus should log subscription and event posts to the console log for debugging purposes.
     static var logToConsole: Bool { get set }
 }
@@ -114,6 +121,11 @@ public class Subbus: SubbusProtocol {
         subscriptions.removeAll(where: { $0.matches(identifier: id) })
         
         log("Unegistered listener for identifier \"\(id)\"")
+    }
+    
+    public static func unsubscribe<T>(event: T.Type) {
+        let eventType = String(reflecting: T.self)
+        subscriptions.removeAll(where: { $0.matches(eventType: eventType) })
     }
 }
 
@@ -220,9 +232,14 @@ internal struct Subscription {
         }
     }
     
+    func matches(eventType otherEventType: String) -> Bool {
+        return eventType == otherEventType
+    }
+    
     func matches(identifier otherId:Any?, eventType otherEventType: String) -> Bool {
         guard matches(identifier: otherId) else { return false }
-        return eventType == otherEventType
+        guard matches(eventType: otherEventType) else { return false }
+        return true
     }
     
     func matches(_ other: Subscription) -> Bool {

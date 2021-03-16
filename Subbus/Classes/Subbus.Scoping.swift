@@ -40,8 +40,14 @@ protocol SubbusScopingProtocol {
 extension Subbus: SubbusScopingProtocol {
     static func addSubscription<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void) {
         //Verify data
-        guard (scope as? OptionalProtocol) == nil else { log("Subscribe - You may not pass in an optional scope."); return }
-        guard let scope = stringFor(id: scope) else { log("Subscribe - String representation of scope is empty."); return }
+        guard (scope as? OptionalProtocol) == nil else {
+            logError("Subscribe - You may not pass in an optional scope.")
+            return
+        }
+        guard let scope = stringFor(id: scope) else {
+            logError("Subscribe - String representation of scope is empty.")
+            return
+        }
         
         //Subscribe
         Subbus.addSubscription(id: id, event: ScopedEvent<T>.self) { (event) in
@@ -52,12 +58,26 @@ extension Subbus: SubbusScopingProtocol {
     
     static func post<S, T>(event: T, limitedToScope scope: S) {
         //Verify data
-        guard (scope as? OptionalProtocol) == nil else { log("Post - You may not pass in an optional scope."); return }
-        guard let scope = stringFor(id: scope) else { log("Post - String representation of scope is empty."); return }
+        guard (scope as? OptionalProtocol) == nil else {
+            logError("Subscribe - You may not pass in an optional scope.")
+            return
+        }
+        guard let scope = stringFor(id: scope) else {
+            logError("Subscribe - String representation of scope is empty.")
+            return
+        }
         
         //Post event
         let scopedEvent = ScopedEvent(scope: scope, event: event)
         Subbus.post(event: scopedEvent)
+    }
+    
+    private static func logError(_ error: String) {
+        #if DEBUG
+        fatalError(error)
+        #else
+        log(error, force: true)
+        #endif
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  Scoping.swift
+//  Subbus.Scoping.swift
 //  Pods-Subbus_Example
 //
 //  Created by Alex Larson on 2/6/20.
@@ -22,18 +22,12 @@ struct ScopedEvent<T> { var scope: String, event: T }
 internal protocol OptionalProtocol {}
 extension Optional: OptionalProtocol {}
 
-public extension Subbus {
-    
-    static func post<S, T>(event: T, limitedToScope scope: S) {
-        //Verify data
-        guard (scope as? OptionalProtocol) == nil else { log("Post - You may not pass in an optional scope."); return }
-        guard let scope = stringFor(id: scope) else { log("Post - String representation of scope is empty."); return }
-        
-        //Post event
-        let scopedEvent = ScopedEvent(scope: scope, event: event)
-        Subbus.post(event: scopedEvent)
-    }
-    
+protocol SubbusScopingProtocol {
+    static func addSubscription<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void)
+    static func post<S, T>(event: T, limitedToScope scope: S)
+}
+
+extension Subbus: SubbusScopingProtocol {
     static func addSubscription<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void) {
         //Verify data
         guard (scope as? OptionalProtocol) == nil else { log("Subscribe - You may not pass in an optional scope."); return }
@@ -44,5 +38,15 @@ public extension Subbus {
             guard event.scope == scope else { return }
             callback(event.event)
         }
+    }
+    
+    static func post<S, T>(event: T, limitedToScope scope: S) {
+        //Verify data
+        guard (scope as? OptionalProtocol) == nil else { log("Post - You may not pass in an optional scope."); return }
+        guard let scope = stringFor(id: scope) else { log("Post - String representation of scope is empty."); return }
+        
+        //Post event
+        let scopedEvent = ScopedEvent(scope: scope, event: event)
+        Subbus.post(event: scopedEvent)
     }
 }

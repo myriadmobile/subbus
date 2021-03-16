@@ -38,7 +38,6 @@
 		02359EB925FFEB510007E6D6 /* SubbusTests.WeakReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubbusTests.WeakReference.swift; sourceTree = "<group>"; };
 		083B817CA64DBB7AFA43798F /* Pods_Subbus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Subbus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15390F4CE4C119C0063B2DC9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		2BB22C397C7E8C272D352BBA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		316C6C6221EE6E300091776B /* SubbusTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubbusTests.swift; sourceTree = "<group>"; };
 		47F314C0AB261B49466F304D /* Pods-Subbus_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Subbus_Tests.release.xcconfig"; path = "Target Support Files/Pods-Subbus_Tests/Pods-Subbus_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4D3B525F1323D4055FAC080D /* Pods-Subbus_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Subbus_Example.release.xcconfig"; path = "Target Support Files/Pods-Subbus_Example/Pods-Subbus_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,7 +156,6 @@
 			children = (
 				79CF145988B95ACA131AADDD /* Subbus.podspec */,
 				15390F4CE4C119C0063B2DC9 /* README.md */,
-				2BB22C397C7E8C272D352BBA /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";

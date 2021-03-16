@@ -84,7 +84,7 @@ public class Subbus: SubbusProtocol {
     }
     
     internal static func addSubscription(_ subscription: Subscription, replace: Bool) {
-        cleanup()
+        clearInvalidSubscriptions()
         
         if replace {
             subscriptions.removeAll(where: { $0.matches(subscription) })
@@ -95,7 +95,7 @@ public class Subbus: SubbusProtocol {
     
     //Fire
     public static func post<T>(event: T) {
-        cleanup()
+        clearInvalidSubscriptions()
         
         let eventType = String(reflecting: T.self)
         
@@ -153,7 +153,7 @@ extension Subbus {
         print("Subbus: \(message)")
     }
     
-    internal static func cleanup() {
+    internal static func clearInvalidSubscriptions() {
         subscriptions.removeAll(where: { $0.identifier == nil })
     }
     

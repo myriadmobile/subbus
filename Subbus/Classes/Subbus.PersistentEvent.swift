@@ -104,7 +104,7 @@ extension Subbus: SubbusPersistentEventProtocol {
     }
     
     public static func post<T: PersistentEvent>(event: T) {
-        cleanup()
+        clearInvalidSubscriptions()
         
         let eventType = String(reflecting: T.self)
         var handled = false

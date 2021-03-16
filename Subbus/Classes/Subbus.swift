@@ -8,21 +8,58 @@
 
 import Foundation
 
+/// The protocol defining the basic capabilities of Subbus.
 protocol SubbusProtocol {
+    /// Adds a new subscription to Subbus with the specified listener ID and event type.
+    ///
+    /// If the `id` property is a class and it is not retained (ARC disposes of the object), Subbus will automatically remove any subscriptions for that `id`.
+    ///
+    /// Parameters:
+    ///     - id: The id of the subscriber to this event.  Used for unregistering.  Can be `Any` type, but classes and primitives are recommended.  Arrays, structs, etc are supported, but keep in mind they're passed as values.  If your struct/array/etc changes, this means it's a different identifier, similar to a string or integer.
+    ///     - event: The event type to register the subscriber to.  Normally this is a class with no parent class, but there are special event types available.  See the Subbus docs.
+    ///     - replace: Whether this event should replace a previous subscription with the same `id` and `event`.
+    ///     - callback: The handler block for when the event is `Post`ed.
     static func addSubscription<I, T>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> Void)
-    static func addSubscription<I, T>(id: I, event: T.Type, callback: @escaping (T) -> Void)
+    
+    /// Posts a `PersistentEvent` to the subscribed receivers.
+    ///
+    /// Parameters:
+    ///     - event: The event to be posted.
     static func post<T>(event: T)
+    
+    /// Unsubscribes a listener from further events of the specified type.
+    ///
+    /// Parameters:
+    ///     - id: The id of the subscriber to this event.  This is the same as used for subscribing.
+    ///     - event: The event type to unsubscribe from.
     static func unsubscribe<I, T>(id: I, event: T.Type)
+    
+    /// Unsubscribes a listener from all further events.
+    ///
+    /// Parameters:
+    ///     - id: The id of the subscriber to this event.  This is the same as used for subscribing.
     static func unsubscribe<I>(id: I)
+    
+    /// Whether Subbus should log subscription and event posts to the console log for debugging purposes.
     static var logToConsole: Bool { get set }
 }
 
+/// A convenience extension to add shortened functions to the `SubbusProtocol`.
 extension SubbusProtocol {
+    /// Adds a new subscription to Subbus with the specified listener ID and event type.
+    ///
+    /// If the `id` property is a class and it is not retained (ARC disposes of the object), Subbus will automatically remove any subscriptions for that `id`.
+    ///
+    /// Parameters:
+    ///     - id: The id of the subscriber to this event.  Used for unregistering.  Can be `Any` type, but classes and primitives are recommended.  Arrays, structs, etc are supported, but keep in mind they're passed as values.  If your struct/array/etc changes, this means it's a different identifier, similar to a string or integer.
+    ///     - event: The event type to register the subscriber to.  Normally this is a class with no parent class, but there are special event types available.  See the Subbus docs.
+    ///     - callback: The handler block for when the event is `Post`ed.
     public static func addSubscription<I, T>(id: I, event: T.Type, callback: @escaping (T) -> Void) {
         addSubscription(id: id, event: event, replace: false, callback: callback)
     }
 }
 
+/// Conformance to the `SubbusProtocol`.
 public class Subbus: SubbusProtocol {
     //State
     static var logToConsole: Bool = false

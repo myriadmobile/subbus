@@ -13,7 +13,7 @@ class PersistentTestClassA: PersistentEvent {
     var exampleVar: String?
     
     init() {
-        super.init(persistanceRule: .clearImmediately)
+        super.init(persistenceRule: .clearImmediately)
     }
 }
 

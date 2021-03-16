@@ -5,28 +5,51 @@
 //  Created by Alex Larson on 2/6/20.
 //
 
-//NOTE: Scoping is secondary behavior. It should be built on top of the core Subbus functionality.
-//Scope is a way of saying "Only give MYEVENT to listeners that want MYEVENT and match a specific scope"
+/// A special convenience event type that allows subscribers to register to a specified scope.
+///
+/// This scope limits the receivers of an event even further,
+/// allowing the same event to have further separation of types without defining multiple events.
+struct ScopedEvent<T> {
+    var scope: String
+    var event: T
+}
 
-//There is no easy way to unsubscribe from a particular scope by using ONLY the scope.
-//I.e. there is no 'unsubscribe(id:event:scope:)'
-//If you want to unsubscribe from with a particular scope - use a unique ID (for example - reuse the scope!).
-//Ex:
-//let scope = "abc"
-//addSubscription(id: scope, MyEvent.self, limitedToScope: scope)
-//unsubscribe(id: scope, MyEvent.self)
-
-struct ScopedEvent<T> { var scope: String, event: T }
-
-//An easy way to check if something is optional without knowing the Wrapped type
+/// A simple protocol that conveniently isolates `Optional` protocol conformance
+/// without the need for knowing the wrapped type.
 internal protocol OptionalProtocol {}
+
+/// Conformance of the `OptionalProtocol`.
 extension Optional: OptionalProtocol {}
 
+/// The protocol defining the scoping capabilities added to Subbus.
 protocol SubbusScopingProtocol {
+    /// Adds a new subscription to Subbus with a `ScopedEvent`.
+    ///
+    /// There is no easy way to unsubscribe from a particular scope by using ONLY the scope.
+    /// I.e. there is no `unsubscribe(id:event:scope:)`.
+    ///
+    /// If you want to unsubscribe from with a particular scope - use a unique ID (for example - reuse the scope!).
+    ///
+    ///     let scope = "abc"
+    ///     addSubscription(id: scope, MyEvent.self, limitedToScope: scope)
+    ///     unsubscribe(id: scope, MyEvent.self)
+    ///
+    /// Parameters:
+    ///     - id: The id of the subscriber to this event.  Used for unregistering.
+    ///     - event: The event type to register the subscriber to.  This class will be a subclass of `ScopedEvent`.
+    ///     - limitedToScope: The scope to subscribe to.  Cannot be `nil` or an `Optional` type.
+    ///     - callback: The handler block for when the event is `Post`ed.
     static func addSubscription<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void)
+    
+    /// Posts a `PersistentEvent` to the subscribed receivers.
+    ///
+    /// Parameters:
+    ///     - event: The event to be posted.
+    ///     - limitedToScope: The scope limitation for the posted event.  Cannot be `nil` or an `Optional` type.
     static func post<S, T>(event: T, limitedToScope scope: S)
 }
 
+/// Conformance to the `SubbusScopingProtocol`.
 extension Subbus: SubbusScopingProtocol {
     static func addSubscription<S, I, T>(id: I, event: T.Type, limitedToScope scope: S, callback: @escaping (T) -> Void) {
         //Verify data

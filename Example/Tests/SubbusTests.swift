@@ -23,7 +23,7 @@ class SubbusTests: XCTestCase {
         Subbus.clearSubscribers()
     }
     
-    func testEventSubscribe() {
+    func testEventSubscribe() {        
         var count = 0
 
         Subbus.addSubscription(id: self, event: TestClassA.self) { (event) in

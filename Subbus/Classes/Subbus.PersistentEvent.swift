@@ -5,47 +5,74 @@
 //  Created by Jangle's MacBook Pro on 3/15/21.
 //
 
-/**
-    A special event type that Subbus will persist beyond `Post`ing the event
- */
+/// A special event type that Subbus will persist beyond `Post`ing the event.
 public class PersistentEvent {
-    /**
-     The result returned by an event handler
-     */
+    /// The result returned by an event handler.
     public enum HandlerResult {
+        /// Returned when the handler was able to successfully handle the event.
         case handledSuccessfully
+        /// Returned when the handler was unable to process the event.
         case failed
     }
     
-    public enum PersistanceRule {
-        // If a subscriber returns .handledSuccessfully, no other subscribers will receive it
+    /// The rule defining how the event will be persisted.
+    ///
+    /// For all rules, if no subscribers return .handledSuccessfully, the event will persist.
+    /// The next subscriber to subscribe to that event will immediately receive the event.
+    public enum PersistenceRule {
+        /// If a subscriber returns .handledSuccessfully, no other subscribers will receive it.
         case clearImmediately
-        
-        // If a subscriber returns .handledSuccessfully, only existing subscribers will receive the event, then it will be cleared
+        /// If a subscriber returns .handledSuccessfully, only existing subscribers
+        /// will receive the event, then it will be cleared.
         case clearAfterAllCurrentSubscribersNotified
-        
-        // Event will never be cleared, regardless of what subscribers return
+        /// Event will *never* be cleared, regardless of what subscribers return.
         case neverClear
     }
     
-    var persistanceRule: PersistanceRule
+    /// The event's persistence rule.
+    var persistenceRule: PersistenceRule
     
-    init(persistanceRule: PersistanceRule) {
-        self.persistanceRule = persistanceRule
+    /// Initializer that requires a persistence rule.
+    ///
+    /// Parameters:
+    ///     - persistenceRule: the rule of persistence.
+    init(persistenceRule: PersistenceRule) {
+        self.persistenceRule = persistenceRule
     }
 }
 
+/// The protocol defining the persistence capabilities added to Subbus.
 protocol SubbusPersistentEventProtocol {
+    /// Adds a new subscription to Subbus with a `PersistentEvent`.
+    ///
+    /// Parameters:
+    ///     - id: The id of the subscriber to this event.  Used for unregistering.
+    ///     - event: The event type to register the subscriber to.  This class will be a subclass of `PersistentEvent`.
+    ///     - replace: Whether this event should replace a previous subscription with the same `id` and `event`.
+    ///     - callback: The handler block for when the event is `Post`ed.
     static func addSubscription<I, T: PersistentEvent>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> PersistentEvent.HandlerResult)
-
+    
+    /// Posts a `PersistentEvent` to the subscribed receivers.
+    ///
+    /// Parameters:
+    ///     - event: The event to be posted.
+    static func post<T: PersistentEvent>(event: T)
 }
 
+/// A convenience extension to add shortened functions to the `SubbusPersistentEventProtocol`.
 extension SubbusPersistentEventProtocol {
+    /// Adds a new subscription to Subbus with a `PersistentEvent`.
+    ///
+    /// Parameters:
+    ///     - id: The id of the subscriber to this event.  Used for unregistering.
+    ///     - event: The event type to register the subscriber to.
+    ///     - callback: The handler block for when the event is `Post`ed.
     public static func addSubscription<I, T: PersistentEvent>(id: I, event: T.Type, callback: @escaping (T) -> PersistentEvent.HandlerResult) {
         addSubscription(id: id, event: event, replace: false, callback: callback)
     }
 }
 
+/// Conformance to the `SubbusPersistentEventProtocol`.
 extension Subbus: SubbusPersistentEventProtocol {
     public static func addSubscription<I, T: PersistentEvent>(id: I, event: T.Type, replace: Bool, callback: @escaping (T) -> PersistentEvent.HandlerResult) {
         let eventType = String(reflecting: T.self)
@@ -61,7 +88,7 @@ extension Subbus: SubbusPersistentEventProtocol {
             let result = callback(unhandledEvent)
             
             if result == .handledSuccessfully {
-                switch unhandledEvent.persistanceRule {
+                switch unhandledEvent.persistenceRule {
                 case .clearImmediately:
                     fallthrough
                 case .clearAfterAllCurrentSubscribersNotified:
@@ -90,7 +117,7 @@ extension Subbus: SubbusPersistentEventProtocol {
             handled = handled || (result == .handledSuccessfully)
             
             if handled {
-                switch event.persistanceRule {
+                switch event.persistenceRule {
                 case .clearImmediately:
                     break iteration
                     

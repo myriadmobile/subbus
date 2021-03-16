@@ -1,5 +1,5 @@
 PODS:
-  - Subbus (1.0.0)
+  - Subbus (2.0.0)
 
 DEPENDENCIES:
   - Subbus (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Subbus: e655fc35a8510618b61449b71bf1ea43bc0f3144
+  Subbus: 7a55df4917af8731629b7f54d8ae136855c2e99c
 
 PODFILE CHECKSUM: 736f5fca242633e20b1f127abda15819e3fcb7e9
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1

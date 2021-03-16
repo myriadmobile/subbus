@@ -7,94 +7,97 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03AD99FEA0BFC43E870AF599E35FB8CF /* Scoping.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8511D00993F8A1E1C4C5DCA80AC6B2B /* Scoping.swift */; };
-		06FF82632BD088C4D264117A1FFCDC5C /* Pods-Subbus_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCCA1AD2DBD355BC177626CE10DF943 /* Pods-Subbus_Example-dummy.m */; };
-		0E00D73DB209370121E74F5D1A1C8EC8 /* Pods-Subbus_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E2C599C91D2F2AA832FF6866B2A2 /* Pods-Subbus_Tests-dummy.m */; };
-		25262F191941F0A1F59EA172BB341BEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		2B3572B1C1A2341A2AADC146F6E2F627 /* Subbus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B4F51573295B7CA8DB0F325FA81FA8 /* Subbus-dummy.m */; };
-		63F974070325163FEF5FF2DCB17262EF /* Pods-Subbus_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E73777A6E8EF40E0F75119CF52E5A8A6 /* Pods-Subbus_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64CB9149ABBC811C76EDDCCCF1D04606 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		73478965E3A66620CE886F41FC368C7F /* Subbus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4F81F14044FBC4AD5FD1F0D575F9ECF /* Subbus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E5CCA293AA061995D565DEA8901206A /* Pods-Subbus_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B94F92034B826ECF22973E4E14E9DEB /* Pods-Subbus_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A09EB2DE8606B09A091D4E6E20DA3FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		A57788473FBD5119562E28CAC69E3B67 /* Subbus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836D9B6845214EEA48D7EAA39D2C41A9 /* Subbus.swift */; };
+		29D06D870FECD85399F499598BEA9D41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		3E39005D1607F923F0EFE0BA5E6D432B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		425A802581BA0D51CE30ED5A36909799 /* Subbus.Scoping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDDFA32864C205C0ED749AECBC3F2F8 /* Subbus.Scoping.swift */; };
+		52E340190CB83BBF83652C278FDF093A /* Subbus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 37841E2300CE3F7F007A0D9D5E116253 /* Subbus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		763D2D6FEA9FCAC5C25A9235FCC1139C /* Pods-Subbus_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239E2C599C91D2F2AA832FF6866B2A2 /* Pods-Subbus_Tests-dummy.m */; };
+		7D1B68FD0384726DAF69C87169FE468B /* Pods-Subbus_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E73777A6E8EF40E0F75119CF52E5A8A6 /* Pods-Subbus_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F11E931992D967BFA589769F6EACA91 /* Pods-Subbus_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B94F92034B826ECF22973E4E14E9DEB /* Pods-Subbus_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A37F3241DC74CD1F59EF5D404E6E69ED /* Pods-Subbus_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCCA1AD2DBD355BC177626CE10DF943 /* Pods-Subbus_Example-dummy.m */; };
+		BB0512168333B30AD1730C9AA6348F9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		DE0A9C1FCC19667B1949008016BF9FC5 /* Subbus.PersistentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602CD5CD0524579B4F1ED7B7AFD157B0 /* Subbus.PersistentEvent.swift */; };
+		E21EEABE1C4B138D3B8A1A9B174B6F50 /* Subbus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85BD5227087FE9F60828D8B032A39E8C /* Subbus-dummy.m */; };
+		EFCF64618F060F46D22992DF8476FC48 /* Subbus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A208CFEEF42793DC0F8924C66197F /* Subbus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3E5D29E41D498423F51241520BD4B834 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F60897FCFC31F8976D2B9F2D603BEB9;
-			remoteInfo = Subbus;
-		};
-		582D3B76EBA0DD0334A81648612C404A /* PBXContainerItemProxy */ = {
+		0FB4054177F76F225F27DE161A17936F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6F5238924A1D1068D3BC628EF9F86F57;
 			remoteInfo = "Pods-Subbus_Example";
 		};
+		325C2C104FDE68AF929FBA0FA2073E3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F60897FCFC31F8976D2B9F2D603BEB9;
+			remoteInfo = Subbus;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E1175AAE62C69E60B7D83C37B2BB9D3 /* Subbus-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Subbus-Info.plist"; sourceTree = "<group>"; };
+		08DAF30F624C9452737BA66A436108B5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0EC6B927607CB8637A232D7FDC4D22C3 /* Subbus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Subbus-prefix.pch"; sourceTree = "<group>"; };
+		0F1042757D4BC3D77512D7B57D6552F0 /* Subbus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Subbus.release.xcconfig; sourceTree = "<group>"; };
 		16263B212D0A585669C4450A0121A76F /* Pods-Subbus_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Subbus_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		21A42C548896B3926EE48B01B07CCA90 /* Subbus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Subbus.debug.xcconfig; sourceTree = "<group>"; };
 		25023D26CF7DCC24FAC706EC660A16A2 /* Pods-Subbus_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Subbus_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		25B4F51573295B7CA8DB0F325FA81FA8 /* Subbus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Subbus-dummy.m"; sourceTree = "<group>"; };
 		2DCCA1AD2DBD355BC177626CE10DF943 /* Pods-Subbus_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Subbus_Example-dummy.m"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		37841E2300CE3F7F007A0D9D5E116253 /* Subbus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Subbus-umbrella.h"; sourceTree = "<group>"; };
+		43E3BB39F9AADE886AF014875478AD84 /* Subbus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Subbus.modulemap; sourceTree = "<group>"; };
 		4B94F92034B826ECF22973E4E14E9DEB /* Pods-Subbus_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Subbus_Tests-umbrella.h"; sourceTree = "<group>"; };
-		4FBEDAABD71E99D3802F991F73C1EBF5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		509F7E3960F31EFDA63325C1E22332E2 /* Subbus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Subbus-prefix.pch"; sourceTree = "<group>"; };
 		5239E2C599C91D2F2AA832FF6866B2A2 /* Pods-Subbus_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Subbus_Tests-dummy.m"; sourceTree = "<group>"; };
+		602CD5CD0524579B4F1ED7B7AFD157B0 /* Subbus.PersistentEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subbus.PersistentEvent.swift; path = Subbus/Classes/Subbus.PersistentEvent.swift; sourceTree = "<group>"; };
+		6DC8FF82C5FF674C67225691E7F7D83C /* Subbus-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Subbus-Info.plist"; sourceTree = "<group>"; };
 		71B0E84D32BE42CD925438612189FA02 /* Pods-Subbus_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Subbus_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7AFB652B7CA4F3CC1767A7899E38389E /* Subbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Subbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7AFB652B7CA4F3CC1767A7899E38389E /* Subbus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Subbus.framework; path = Subbus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D09B00DF8C30094D6EBFF4D4D91A286 /* Pods-Subbus_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Subbus_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7D285649B217B5837CCF3553B9D24175 /* Pods-Subbus_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Subbus_Tests-Info.plist"; sourceTree = "<group>"; };
 		7E29AA3AD001D2C0758DE7E06F538A24 /* Pods-Subbus_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Subbus_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		836D9B6845214EEA48D7EAA39D2C41A9 /* Subbus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subbus.swift; path = Subbus/Classes/Subbus.swift; sourceTree = "<group>"; };
-		8E314D25AD808F10C7063610D28062B0 /* Pods_Subbus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Subbus_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0A7B9EDFDE2DA338DDD277D82535A3B /* Subbus.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Subbus.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		85BD5227087FE9F60828D8B032A39E8C /* Subbus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Subbus-dummy.m"; sourceTree = "<group>"; };
+		8E314D25AD808F10C7063610D28062B0 /* Pods_Subbus_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Subbus_Tests.framework; path = "Pods-Subbus_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A4C9DCAC1FBAAF5AD00D8DF7F9EB65EB /* Pods-Subbus_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Subbus_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A73671C8331C86172C212020FCD9FA81 /* Pods-Subbus_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Subbus_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C53E1A1F1E1783AA0F017AE37BF0D5F9 /* Pods_Subbus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Subbus_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C53E1A1F1E1783AA0F017AE37BF0D5F9 /* Pods_Subbus_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Subbus_Example.framework; path = "Pods-Subbus_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53F876F78AA9243196EFE37BC9A1ABA /* Pods-Subbus_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Subbus_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		CA6C06AE477941728A88C7380BB14B47 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CE84C3F8D9B50793EA9A9B944B5CF1FA /* Pods-Subbus_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Subbus_Tests.modulemap"; sourceTree = "<group>"; };
-		E4F81F14044FBC4AD5FD1F0D575F9ECF /* Subbus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Subbus-umbrella.h"; sourceTree = "<group>"; };
+		DEDDFA32864C205C0ED749AECBC3F2F8 /* Subbus.Scoping.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subbus.Scoping.swift; path = Subbus/Classes/Subbus.Scoping.swift; sourceTree = "<group>"; };
+		E3ACA6A195B851928445AB5DD9C4524A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		E44A208CFEEF42793DC0F8924C66197F /* Subbus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subbus.swift; path = Subbus/Classes/Subbus.swift; sourceTree = "<group>"; };
 		E73777A6E8EF40E0F75119CF52E5A8A6 /* Pods-Subbus_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Subbus_Example-umbrella.h"; sourceTree = "<group>"; };
-		E8511D00993F8A1E1C4C5DCA80AC6B2B /* Scoping.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Scoping.swift; path = Subbus/Classes/Scoping.swift; sourceTree = "<group>"; };
-		EE020828E8734F172EF30E1F5E17C3E1 /* Subbus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Subbus.modulemap; sourceTree = "<group>"; };
 		EEB96292DD8812587EFB1EE78BD929E8 /* Pods-Subbus_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Subbus_Example-frameworks.sh"; sourceTree = "<group>"; };
+		F26DA03F581FA7AF2F0908AC66CDAEE2 /* Subbus.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Subbus.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F2829982BB04E9ADB06F5863387132BC /* Pods-Subbus_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Subbus_Example-Info.plist"; sourceTree = "<group>"; };
 		F775C2B708B53D299D9F4D6625991461 /* Pods-Subbus_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Subbus_Example.modulemap"; sourceTree = "<group>"; };
-		FFB8925C8E8A074EB870ACF1320F7471 /* Subbus.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Subbus.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B5AEEE490D217872A76E7FD80727F1B1 /* Frameworks */ = {
+		27C114ABB27AF1B87B395075C1A47E9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25262F191941F0A1F59EA172BB341BEF /* Foundation.framework in Frameworks */,
+				29D06D870FECD85399F499598BEA9D41 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C963771DE530454CF862FFABBDA2AD0E /* Frameworks */ = {
+		4262BA176ED1E5F6C8B3CFA07B8A9D24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09EB2DE8606B09A091D4E6E20DA3FBE /* Foundation.framework in Frameworks */,
+				BB0512168333B30AD1730C9AA6348F9E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D695256F19C8D0C75DD74EA32AD23B4F /* Frameworks */ = {
+		873F623C4063A09FA7E76530587CDFE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64CB9149ABBC811C76EDDCCCF1D04606 /* Foundation.framework in Frameworks */,
+				3E39005D1607F923F0EFE0BA5E6D432B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,14 +139,20 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		50CFA93DD580147991223D5A3B4D5328 /* Pod */ = {
+		435B6DB9A948F4DC5ABDD8269468E148 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4FBEDAABD71E99D3802F991F73C1EBF5 /* LICENSE */,
-				CA6C06AE477941728A88C7380BB14B47 /* README.md */,
-				A0A7B9EDFDE2DA338DDD277D82535A3B /* Subbus.podspec */,
+				A2E53DEDB67FF85D511CDC39356A5AB6 /* Subbus */,
 			);
-			name = Pod;
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		5B0B20FAAF65515B710ACD00238AD83B /* Pods-Subbus_Example */ = {
@@ -163,33 +172,39 @@
 			path = "Target Support Files/Pods-Subbus_Example";
 			sourceTree = "<group>";
 		};
-		6B6C41C4641DE82AE15E5162C766EE2B /* Support Files */ = {
+		A2E53DEDB67FF85D511CDC39356A5AB6 /* Subbus */ = {
 			isa = PBXGroup;
 			children = (
-				EE020828E8734F172EF30E1F5E17C3E1 /* Subbus.modulemap */,
-				FFB8925C8E8A074EB870ACF1320F7471 /* Subbus.xcconfig */,
-				25B4F51573295B7CA8DB0F325FA81FA8 /* Subbus-dummy.m */,
-				0E1175AAE62C69E60B7D83C37B2BB9D3 /* Subbus-Info.plist */,
-				509F7E3960F31EFDA63325C1E22332E2 /* Subbus-prefix.pch */,
-				E4F81F14044FBC4AD5FD1F0D575F9ECF /* Subbus-umbrella.h */,
+				E44A208CFEEF42793DC0F8924C66197F /* Subbus.swift */,
+				602CD5CD0524579B4F1ED7B7AFD157B0 /* Subbus.PersistentEvent.swift */,
+				DEDDFA32864C205C0ED749AECBC3F2F8 /* Subbus.Scoping.swift */,
+				EBE4AE7D7E8AE7C32FC54B9D1E1E4953 /* Pod */,
+				AAE49AE00ABBABB211D88C0E6C07ED11 /* Support Files */,
+			);
+			name = Subbus;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		AAE49AE00ABBABB211D88C0E6C07ED11 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				43E3BB39F9AADE886AF014875478AD84 /* Subbus.modulemap */,
+				85BD5227087FE9F60828D8B032A39E8C /* Subbus-dummy.m */,
+				6DC8FF82C5FF674C67225691E7F7D83C /* Subbus-Info.plist */,
+				0EC6B927607CB8637A232D7FDC4D22C3 /* Subbus-prefix.pch */,
+				37841E2300CE3F7F007A0D9D5E116253 /* Subbus-umbrella.h */,
+				21A42C548896B3926EE48B01B07CCA90 /* Subbus.debug.xcconfig */,
+				0F1042757D4BC3D77512D7B57D6552F0 /* Subbus.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/Subbus";
-			sourceTree = "<group>";
-		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				DA1D2FBE5765FC7C56631A30A181740F /* Development Pods */,
+				435B6DB9A948F4DC5ABDD8269468E148 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				33104C82CEDE1DA841EF09E2202522B4 /* Products */,
 				39660B51C22FE8F87CC84B4C43987B1D /* Targets Support Files */,
@@ -199,55 +214,45 @@
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D8936AEB7CB46198B4B9932557578EF8 /* Subbus */ = {
+		EBE4AE7D7E8AE7C32FC54B9D1E1E4953 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				E8511D00993F8A1E1C4C5DCA80AC6B2B /* Scoping.swift */,
-				836D9B6845214EEA48D7EAA39D2C41A9 /* Subbus.swift */,
-				50CFA93DD580147991223D5A3B4D5328 /* Pod */,
-				6B6C41C4641DE82AE15E5162C766EE2B /* Support Files */,
+				08DAF30F624C9452737BA66A436108B5 /* LICENSE */,
+				E3ACA6A195B851928445AB5DD9C4524A /* README.md */,
+				F26DA03F581FA7AF2F0908AC66CDAEE2 /* Subbus.podspec */,
 			);
-			name = Subbus;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		DA1D2FBE5765FC7C56631A30A181740F /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D8936AEB7CB46198B4B9932557578EF8 /* Subbus */,
-			);
-			name = "Development Pods";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		235D52F2E80B430E654BD60AD0FD2116 /* Headers */ = {
+		33524B4DD10A4F9FF82F0542F6BBBD6E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63F974070325163FEF5FF2DCB17262EF /* Pods-Subbus_Example-umbrella.h in Headers */,
+				52E340190CB83BBF83652C278FDF093A /* Subbus-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4CAC8B903040A0DBFCF6F501DE918253 /* Headers */ = {
+		E290A1BABF5937840803A4BCC2BBB3C4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73478965E3A66620CE886F41FC368C7F /* Subbus-umbrella.h in Headers */,
+				7D1B68FD0384726DAF69C87169FE468B /* Pods-Subbus_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D737F354EE6783695C604429E735AB1B /* Headers */ = {
+		ED9471BB2E5AD1449F4B0689055371B4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E5CCA293AA061995D565DEA8901206A /* Pods-Subbus_Tests-umbrella.h in Headers */,
+				8F11E931992D967BFA589769F6EACA91 /* Pods-Subbus_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,17 +261,17 @@
 /* Begin PBXNativeTarget section */
 		6F5238924A1D1068D3BC628EF9F86F57 /* Pods-Subbus_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECED51CA3F17CF8D725D8BBE4B9461FE /* Build configuration list for PBXNativeTarget "Pods-Subbus_Example" */;
+			buildConfigurationList = BFD38EB13448A7C9205EB719AC369F5C /* Build configuration list for PBXNativeTarget "Pods-Subbus_Example" */;
 			buildPhases = (
-				235D52F2E80B430E654BD60AD0FD2116 /* Headers */,
-				3B40BB916049D77CB184EBAC831F92D7 /* Sources */,
-				C963771DE530454CF862FFABBDA2AD0E /* Frameworks */,
-				211E8939373E1D0186894628D113EABD /* Resources */,
+				E290A1BABF5937840803A4BCC2BBB3C4 /* Headers */,
+				D4C14FA50CDB069E7438C523659FFE63 /* Sources */,
+				4262BA176ED1E5F6C8B3CFA07B8A9D24 /* Frameworks */,
+				F0CD19BA8A85F4DFDDE6C0801B7A0DE9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B2AE69F8B3AE2F3EC0DC00F25B4707DC /* PBXTargetDependency */,
+				A03D57723F6B920817FBCA0143B08D93 /* PBXTargetDependency */,
 			);
 			name = "Pods-Subbus_Example";
 			productName = "Pods-Subbus_Example";
@@ -275,12 +280,12 @@
 		};
 		6F60897FCFC31F8976D2B9F2D603BEB9 /* Subbus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEE22D555ED4B8F23133CCCAB8BFB018 /* Build configuration list for PBXNativeTarget "Subbus" */;
+			buildConfigurationList = 9379445311E13B0E5777FF39E42BDBF2 /* Build configuration list for PBXNativeTarget "Subbus" */;
 			buildPhases = (
-				4CAC8B903040A0DBFCF6F501DE918253 /* Headers */,
-				053B3F7495DA6C0ECB712141AC9AAC7E /* Sources */,
-				B5AEEE490D217872A76E7FD80727F1B1 /* Frameworks */,
-				2737516DC090A8D606E4B361BCA89799 /* Resources */,
+				33524B4DD10A4F9FF82F0542F6BBBD6E /* Headers */,
+				723D805301745AF7583D3FD6B545693F /* Sources */,
+				27C114ABB27AF1B87B395075C1A47E9C /* Frameworks */,
+				B448DB327F07697535350414B6C1586B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -293,17 +298,17 @@
 		};
 		A2405F0D055E27603E9E0956B50476AE /* Pods-Subbus_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7E59D7BEBB0AC42ABA1E5AA6E2177869 /* Build configuration list for PBXNativeTarget "Pods-Subbus_Tests" */;
+			buildConfigurationList = C6EF3F2763BD45F6EBE234F6CD42355B /* Build configuration list for PBXNativeTarget "Pods-Subbus_Tests" */;
 			buildPhases = (
-				D737F354EE6783695C604429E735AB1B /* Headers */,
-				E3DADC69C4A0EDD718804425FCE7F1EC /* Sources */,
-				D695256F19C8D0C75DD74EA32AD23B4F /* Frameworks */,
-				B038429A2ED1EC4632F48EAE5896CC41 /* Resources */,
+				ED9471BB2E5AD1449F4B0689055371B4 /* Headers */,
+				1C93995178EEB99AA1248B8B98077287 /* Sources */,
+				873F623C4063A09FA7E76530587CDFE3 /* Frameworks */,
+				58648E33C4470A8B6A24ABB5520E2894 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CA05B71C2F19B1B5C5D1D3B9B9B672BE /* PBXTargetDependency */,
+				770E29669C243CD78F362AD18CF5E957 /* PBXTargetDependency */,
 			);
 			name = "Pods-Subbus_Tests";
 			productName = "Pods-Subbus_Tests";
@@ -318,11 +323,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
-				TargetAttributes = {
-					6F60897FCFC31F8976D2B9F2D603BEB9 = {
-						LastSwiftMigration = 1140;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -345,21 +345,21 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		211E8939373E1D0186894628D113EABD /* Resources */ = {
+		58648E33C4470A8B6A24ABB5520E2894 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2737516DC090A8D606E4B361BCA89799 /* Resources */ = {
+		B448DB327F07697535350414B6C1586B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B038429A2ED1EC4632F48EAE5896CC41 /* Resources */ = {
+		F0CD19BA8A85F4DFDDE6C0801B7A0DE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -369,57 +369,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		053B3F7495DA6C0ECB712141AC9AAC7E /* Sources */ = {
+		1C93995178EEB99AA1248B8B98077287 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03AD99FEA0BFC43E870AF599E35FB8CF /* Scoping.swift in Sources */,
-				2B3572B1C1A2341A2AADC146F6E2F627 /* Subbus-dummy.m in Sources */,
-				A57788473FBD5119562E28CAC69E3B67 /* Subbus.swift in Sources */,
+				763D2D6FEA9FCAC5C25A9235FCC1139C /* Pods-Subbus_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B40BB916049D77CB184EBAC831F92D7 /* Sources */ = {
+		723D805301745AF7583D3FD6B545693F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06FF82632BD088C4D264117A1FFCDC5C /* Pods-Subbus_Example-dummy.m in Sources */,
+				E21EEABE1C4B138D3B8A1A9B174B6F50 /* Subbus-dummy.m in Sources */,
+				DE0A9C1FCC19667B1949008016BF9FC5 /* Subbus.PersistentEvent.swift in Sources */,
+				425A802581BA0D51CE30ED5A36909799 /* Subbus.Scoping.swift in Sources */,
+				EFCF64618F060F46D22992DF8476FC48 /* Subbus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E3DADC69C4A0EDD718804425FCE7F1EC /* Sources */ = {
+		D4C14FA50CDB069E7438C523659FFE63 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E00D73DB209370121E74F5D1A1C8EC8 /* Pods-Subbus_Tests-dummy.m in Sources */,
+				A37F3241DC74CD1F59EF5D404E6E69ED /* Pods-Subbus_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B2AE69F8B3AE2F3EC0DC00F25B4707DC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Subbus;
-			target = 6F60897FCFC31F8976D2B9F2D603BEB9 /* Subbus */;
-			targetProxy = 3E5D29E41D498423F51241520BD4B834 /* PBXContainerItemProxy */;
-		};
-		CA05B71C2F19B1B5C5D1D3B9B9B672BE /* PBXTargetDependency */ = {
+		770E29669C243CD78F362AD18CF5E957 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Subbus_Example";
 			target = 6F5238924A1D1068D3BC628EF9F86F57 /* Pods-Subbus_Example */;
-			targetProxy = 582D3B76EBA0DD0334A81648612C404A /* PBXContainerItemProxy */;
+			targetProxy = 0FB4054177F76F225F27DE161A17936F /* PBXContainerItemProxy */;
+		};
+		A03D57723F6B920817FBCA0143B08D93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Subbus;
+			target = 6F60897FCFC31F8976D2B9F2D603BEB9 /* Subbus */;
+			targetProxy = 325C2C104FDE68AF929FBA0FA2073E3C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0639B2DB62B17B36B29A4FD09807C19D /* Release */ = {
+		0B20EE2934E651CC40473C6374FCC5F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A73671C8331C86172C212020FCD9FA81 /* Pods-Subbus_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -448,12 +448,11 @@
 			};
 			name = Release;
 		};
-		12DA593BA0B058FC993E1F7028908133 /* Debug */ = {
+		1C868CC4E8B5E2392F2ECAAF4D54620D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFB8925C8E8A074EB870ACF1320F7471 /* Subbus.xcconfig */;
+			baseConfigurationReference = 21A42C548896B3926EE48B01B07CCA90 /* Subbus.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -473,17 +472,51 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		196DFA3E4A09A28224918543529A1885 /* Debug */ = {
+		212322FE3B87D6138146AEEAC8E65442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25023D26CF7DCC24FAC706EC660A16A2 /* Pods-Subbus_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Subbus_Example/Pods-Subbus_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Subbus_Example/Pods-Subbus_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -506,6 +539,135 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		93A6BD84A0E2E0DABB1D17AFDF723A1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16263B212D0A585669C4450A0121A76F /* Pods-Subbus_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Subbus_Tests/Pods-Subbus_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Subbus_Tests/Pods-Subbus_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C09411821C185C571AEC5F4CA03BAB26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F1042757D4BC3D77512D7B57D6552F0 /* Subbus.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Subbus/Subbus-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Subbus/Subbus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Subbus/Subbus.modulemap";
+				PRODUCT_MODULE_NAME = Subbus;
+				PRODUCT_NAME = Subbus;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -544,13 +706,12 @@
 			};
 			name = Debug;
 		};
-		3B5E052682D752A24C438D329E8D1928 /* Debug */ = {
+		F4C7F8B33E54DC3EDDD6239D545B2308 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4C9DCAC1FBAAF5AD00D8DF7F9EB65EB /* Pods-Subbus_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -577,167 +738,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		67A91C8AAB017961FEA500A4A48A5DC7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFB8925C8E8A074EB870ACF1320F7471 /* Subbus.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Subbus/Subbus-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Subbus/Subbus-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Subbus/Subbus.modulemap";
-				PRODUCT_MODULE_NAME = Subbus;
-				PRODUCT_NAME = Subbus;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		968AA9A1DD4251C5EF003892946870BE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25023D26CF7DCC24FAC706EC660A16A2 /* Pods-Subbus_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Subbus_Example/Pods-Subbus_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Subbus_Example/Pods-Subbus_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		AE6985F16C099DFBEDABB6F0CB254E5E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16263B212D0A585669C4450A0121A76F /* Pods-Subbus_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Subbus_Tests/Pods-Subbus_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Subbus_Tests/Pods-Subbus_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -745,35 +745,35 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				196DFA3E4A09A28224918543529A1885 /* Debug */,
-				B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */,
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7E59D7BEBB0AC42ABA1E5AA6E2177869 /* Build configuration list for PBXNativeTarget "Pods-Subbus_Tests" */ = {
+		9379445311E13B0E5777FF39E42BDBF2 /* Build configuration list for PBXNativeTarget "Subbus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B5E052682D752A24C438D329E8D1928 /* Debug */,
-				AE6985F16C099DFBEDABB6F0CB254E5E /* Release */,
+				1C868CC4E8B5E2392F2ECAAF4D54620D /* Debug */,
+				C09411821C185C571AEC5F4CA03BAB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEE22D555ED4B8F23133CCCAB8BFB018 /* Build configuration list for PBXNativeTarget "Subbus" */ = {
+		BFD38EB13448A7C9205EB719AC369F5C /* Build configuration list for PBXNativeTarget "Pods-Subbus_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12DA593BA0B058FC993E1F7028908133 /* Debug */,
-				67A91C8AAB017961FEA500A4A48A5DC7 /* Release */,
+				212322FE3B87D6138146AEEAC8E65442 /* Debug */,
+				0B20EE2934E651CC40473C6374FCC5F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECED51CA3F17CF8D725D8BBE4B9461FE /* Build configuration list for PBXNativeTarget "Pods-Subbus_Example" */ = {
+		C6EF3F2763BD45F6EBE234F6CD42355B /* Build configuration list for PBXNativeTarget "Pods-Subbus_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				968AA9A1DD4251C5EF003892946870BE /* Debug */,
-				0639B2DB62B17B36B29A4FD09807C19D /* Release */,
+				F4C7F8B33E54DC3EDDD6239D545B2308 /* Debug */,
+				93A6BD84A0E2E0DABB1D17AFDF723A1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

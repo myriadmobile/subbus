@@ -35,7 +35,7 @@ Subbus.unsubscribe(id: self)
 Subbus.unsubscribe(id: self, event: ExampleEvent.self)
 ```
 
-> If your subscriber is a class, there's no need to unsubscribe it.  Subbus will automatically discard subscriptions whose id has been deallocated.
+> If your subscriber is a class, there's no need to unsubscribe it.  Subbus will automatically discard subscriptions whose id has been deallocated (similar to NotificationCenter).
 
 See below for advanced usage examples.
 

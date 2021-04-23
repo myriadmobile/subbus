@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0208D9F82462F2DF00A4ED3B /* SubbusTests.Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0208D9F72462F2DF00A4ED3B /* SubbusTests.Persistent.swift */; };
+		020D894026027B8100958875 /* NotificationCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D893F26027B8100958875 /* NotificationCenterTests.swift */; };
 		02359EAF25FFA4C20007E6D6 /* SubbusTests.Scoping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02359EAE25FFA4C20007E6D6 /* SubbusTests.Scoping.swift */; };
 		02359EB525FFA91A0007E6D6 /* SubbusTests.Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02359EB425FFA91A0007E6D6 /* SubbusTests.Types.swift */; };
 		02359EBA25FFEB510007E6D6 /* SubbusTests.WeakReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02359EB925FFEB510007E6D6 /* SubbusTests.WeakReference.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		0208D9F72462F2DF00A4ED3B /* SubbusTests.Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubbusTests.Persistent.swift; sourceTree = "<group>"; };
+		020D893F26027B8100958875 /* NotificationCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterTests.swift; sourceTree = "<group>"; };
 		02359EAE25FFA4C20007E6D6 /* SubbusTests.Scoping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubbusTests.Scoping.swift; sourceTree = "<group>"; };
 		02359EB425FFA91A0007E6D6 /* SubbusTests.Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubbusTests.Types.swift; sourceTree = "<group>"; };
 		02359EB925FFEB510007E6D6 /* SubbusTests.WeakReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubbusTests.WeakReference.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				02359EAE25FFA4C20007E6D6 /* SubbusTests.Scoping.swift */,
 				0208D9F72462F2DF00A4ED3B /* SubbusTests.Persistent.swift */,
 				02359EB925FFEB510007E6D6 /* SubbusTests.WeakReference.swift */,
+				020D893F26027B8100958875 /* NotificationCenterTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -354,6 +357,7 @@
 				316C6C6321EE6E300091776B /* SubbusTests.swift in Sources */,
 				0208D9F82462F2DF00A4ED3B /* SubbusTests.Persistent.swift in Sources */,
 				02359EAF25FFA4C20007E6D6 /* SubbusTests.Scoping.swift in Sources */,
+				020D894026027B8100958875 /* NotificationCenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
